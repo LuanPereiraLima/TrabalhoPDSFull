@@ -19,8 +19,9 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
      */
     public TelaPrincipal1() {
         initComponents();
+        setLocationRelativeTo(null);
          //funcao responsavel por redimensionar a tela de acordo com a resoloucao.
-        GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode() ;
+        //GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode() ;
     }
 
     /**
@@ -39,24 +40,24 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         jLNomeDoJagador1 = new javax.swing.JLabel();
         jSPossesjogador1 = new javax.swing.JScrollPane();
         jSPossesjogador2 = new javax.swing.JScrollPane();
-        jLLogradouro23 = new javax.swing.JLabel();
-        jLLogradouro22 = new javax.swing.JLabel();
-        jLLogradouro21 = new javax.swing.JLabel();
-        jLLogradouro20 = new javax.swing.JLabel();
-        jLLogradouro19 = new javax.swing.JLabel();
-        jLLogradouro18 = new javax.swing.JLabel();
-        jLLogradouro17 = new javax.swing.JLabel();
-        jLLogradouro16 = new javax.swing.JLabel();
-        jLLogradouro15 = new javax.swing.JLabel();
-        jLLogradouro14 = new javax.swing.JLabel();
-        jLLogradouro13 = new javax.swing.JLabel();
-        jLLogradouro12 = new javax.swing.JLabel();
         jLLogradouro11 = new javax.swing.JLabel();
-        jLLogradouro10 = new javax.swing.JLabel();
-        jLLogradouro9 = new javax.swing.JLabel();
-        jLLogradouro8 = new javax.swing.JLabel();
-        jLLogradouro7 = new javax.swing.JLabel();
+        jLLogradouro12 = new javax.swing.JLabel();
+        jLLogradouro13 = new javax.swing.JLabel();
+        jLLogradouro14 = new javax.swing.JLabel();
+        jLLogradouro15 = new javax.swing.JLabel();
+        jLLogradouro16 = new javax.swing.JLabel();
+        jLLogradouro17 = new javax.swing.JLabel();
+        jLLogradouro18 = new javax.swing.JLabel();
+        jLLogradouro19 = new javax.swing.JLabel();
+        jLLogradouro0 = new javax.swing.JLabel();
+        jLLogradouro1 = new javax.swing.JLabel();
+        jLLogradouro2 = new javax.swing.JLabel();
+        jLLogradouro3 = new javax.swing.JLabel();
         jLLogradouro6 = new javax.swing.JLabel();
+        jLLogradouro7 = new javax.swing.JLabel();
+        jLLogradouro8 = new javax.swing.JLabel();
+        jLLogradouro9 = new javax.swing.JLabel();
+        jLLogradouro10 = new javax.swing.JLabel();
         jLLogradouro4 = new javax.swing.JLabel();
         jLLogradouro5 = new javax.swing.JLabel();
         jLCartasJogador1 = new javax.swing.JLabel();
@@ -70,7 +71,6 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         jCDado2Jogador2 = new javax.swing.JComboBox();
         jCDado1Jogador1 = new javax.swing.JComboBox();
         jCDado2Jogador1 = new javax.swing.JComboBox();
-        jLCarta = new javax.swing.JLabel();
         jLTabuleiro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,15 +78,20 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1376, 728));
         setMinimumSize(new java.awt.Dimension(1376, 728));
         setUndecorated(true);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jTesteGif1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Costas.gif"))); // NOI18N
         getContentPane().add(jTesteGif1);
-        jTesteGif1.setBounds(930, 170, 50, 49);
+        jTesteGif1.setBounds(340, 630, 50, 49);
 
         jTesteGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Conversa.gif"))); // NOI18N
         getContentPane().add(jTesteGif);
-        jTesteGif.setBounds(980, 170, 50, 50);
+        jTesteGif.setBounds(390, 630, 50, 50);
 
         jLCorrecaoGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CorreçãoDoGif.gif"))); // NOI18N
         getContentPane().add(jLCorrecaoGif);
@@ -94,7 +99,7 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
 
         jLNomeDoJagador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ArwenOuro.png"))); // NOI18N
         getContentPane().add(jLNomeDoJagador2);
-        jLNomeDoJagador2.setBounds(1260, 160, 90, 20);
+        jLNomeDoJagador2.setBounds(1270, 160, 90, 20);
 
         jLNomeDoJagador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/FrodoOuro.png"))); // NOI18N
         getContentPane().add(jLNomeDoJagador1);
@@ -104,77 +109,77 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         getContentPane().add(jSPossesjogador2);
         jSPossesjogador2.setBounds(1173, 513, 160, 190);
 
-        jLLogradouro23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro23);
-        jLLogradouro23.setBounds(930, 120, 120, 120);
+        jLLogradouro11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro11);
+        jLLogradouro11.setBounds(930, 120, 120, 120);
 
-        jLLogradouro22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro22);
-        jLLogradouro22.setBounds(930, 240, 120, 120);
+        jLLogradouro12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro12);
+        jLLogradouro12.setBounds(930, 240, 120, 120);
 
-        jLLogradouro21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro21);
-        jLLogradouro21.setBounds(930, 360, 120, 120);
+        jLLogradouro13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro13);
+        jLLogradouro13.setBounds(930, 360, 120, 120);
 
-        jLLogradouro20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro20);
-        jLLogradouro20.setBounds(930, 480, 120, 120);
+        jLLogradouro14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro14);
+        jLLogradouro14.setBounds(930, 480, 120, 120);
 
-        jLLogradouro19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro19);
-        jLLogradouro19.setBounds(930, 600, 120, 120);
+        jLLogradouro15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro15);
+        jLLogradouro15.setBounds(930, 600, 120, 120);
 
-        jLLogradouro18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro18);
-        jLLogradouro18.setBounds(810, 600, 120, 120);
+        jLLogradouro16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro16);
+        jLLogradouro16.setBounds(810, 600, 120, 120);
 
         jLLogradouro17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
         getContentPane().add(jLLogradouro17);
         jLLogradouro17.setBounds(690, 600, 120, 120);
 
-        jLLogradouro16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro16);
-        jLLogradouro16.setBounds(570, 600, 120, 120);
+        jLLogradouro18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro18);
+        jLLogradouro18.setBounds(570, 600, 120, 120);
 
-        jLLogradouro15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro15);
-        jLLogradouro15.setBounds(450, 600, 120, 120);
+        jLLogradouro19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro19);
+        jLLogradouro19.setBounds(450, 600, 120, 120);
 
-        jLLogradouro14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro14);
-        jLLogradouro14.setBounds(330, 600, 120, 120);
+        jLLogradouro0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro0);
+        jLLogradouro0.setBounds(330, 600, 120, 120);
 
-        jLLogradouro13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro13);
-        jLLogradouro13.setBounds(330, 480, 120, 120);
+        jLLogradouro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro1);
+        jLLogradouro1.setBounds(330, 480, 120, 120);
 
-        jLLogradouro12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro12);
-        jLLogradouro12.setBounds(330, 360, 120, 120);
+        jLLogradouro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro2);
+        jLLogradouro2.setBounds(330, 360, 120, 120);
 
-        jLLogradouro11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro11);
-        jLLogradouro11.setBounds(330, 240, 120, 120);
+        jLLogradouro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro3);
+        jLLogradouro3.setBounds(330, 240, 120, 120);
 
-        jLLogradouro10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro10);
-        jLLogradouro10.setBounds(450, 0, 120, 120);
+        jLLogradouro6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro6);
+        jLLogradouro6.setBounds(450, 0, 120, 120);
 
-        jLLogradouro9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro9);
-        jLLogradouro9.setBounds(570, 0, 120, 120);
+        jLLogradouro7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro7);
+        jLLogradouro7.setBounds(570, 0, 120, 120);
 
         jLLogradouro8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
         getContentPane().add(jLLogradouro8);
         jLLogradouro8.setBounds(690, 0, 120, 120);
 
-        jLLogradouro7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro7);
-        jLLogradouro7.setBounds(810, 0, 120, 120);
+        jLLogradouro9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro9);
+        jLLogradouro9.setBounds(810, 0, 120, 120);
 
-        jLLogradouro6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
-        getContentPane().add(jLLogradouro6);
-        jLLogradouro6.setBounds(930, 0, 120, 120);
+        jLLogradouro10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
+        getContentPane().add(jLLogradouro10);
+        jLLogradouro10.setBounds(930, 0, 120, 120);
 
         jLLogradouro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
         getContentPane().add(jLLogradouro4);
@@ -190,7 +195,7 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
 
         jLCartasJogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olho-de-sauron.jpg"))); // NOI18N
         getContentPane().add(jLCartasJogador2);
-        jLCartasJogador2.setBounds(1160, 295, 190, 190);
+        jLCartasJogador2.setBounds(1170, 300, 190, 190);
 
         jLImagemCentral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Olho.gif"))); // NOI18N
         getContentPane().add(jLImagemCentral);
@@ -198,11 +203,11 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
 
         jLPersonagem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Arwen.png"))); // NOI18N
         getContentPane().add(jLPersonagem2);
-        jLPersonagem2.setBounds(1115, 60, 160, 120);
+        jLPersonagem2.setBounds(1130, 60, 160, 120);
 
         jLPersonagem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Frodo.png"))); // NOI18N
         getContentPane().add(jLPersonagem1);
-        jLPersonagem1.setBounds(-27, 60, 160, 120);
+        jLPersonagem1.setBounds(-20, 60, 160, 120);
 
         jBFinalizarJogada1.setBackground(new java.awt.Color(51, 51, 0));
         jBFinalizarJogada1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botãonormal.png"))); // NOI18N
@@ -244,11 +249,10 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         getContentPane().add(jCDado2Jogador1);
         jCDado2Jogador1.setBounds(120, 30, 40, 20);
 
-        jLCarta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CartaParaJogador.png"))); // NOI18N
-        getContentPane().add(jLCarta);
-        jLCarta.setBounds(450, 200, 470, 330);
-
         jLTabuleiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Tabuleiro1jL.png"))); // NOI18N
+        jLTabuleiro.setMaximumSize(new java.awt.Dimension(1376, 728));
+        jLTabuleiro.setMinimumSize(new java.awt.Dimension(1376, 728));
+        jLTabuleiro.setPreferredSize(new java.awt.Dimension(1376, 728));
         getContentPane().add(jLTabuleiro);
         jLTabuleiro.setBounds(0, 0, 1376, 728);
 
@@ -263,6 +267,14 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCDado1Jogador2ActionPerformed
 
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+        System.out.println(evt.getKeyCode());
+    }//GEN-LAST:event_formKeyTyped
+
+    private void movimentar(int posicoes){
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -305,11 +317,12 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JComboBox jCDado1Jogador2;
     private javax.swing.JComboBox jCDado2Jogador1;
     private javax.swing.JComboBox jCDado2Jogador2;
-    private javax.swing.JLabel jLCarta;
     private javax.swing.JLabel jLCartasJogador1;
     private javax.swing.JLabel jLCartasJogador2;
     private javax.swing.JLabel jLCorrecaoGif;
     private javax.swing.JLabel jLImagemCentral;
+    private javax.swing.JLabel jLLogradouro0;
+    private javax.swing.JLabel jLLogradouro1;
     private javax.swing.JLabel jLLogradouro10;
     private javax.swing.JLabel jLLogradouro11;
     private javax.swing.JLabel jLLogradouro12;
@@ -320,10 +333,8 @@ public class TelaPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLLogradouro17;
     private javax.swing.JLabel jLLogradouro18;
     private javax.swing.JLabel jLLogradouro19;
-    private javax.swing.JLabel jLLogradouro20;
-    private javax.swing.JLabel jLLogradouro21;
-    private javax.swing.JLabel jLLogradouro22;
-    private javax.swing.JLabel jLLogradouro23;
+    private javax.swing.JLabel jLLogradouro2;
+    private javax.swing.JLabel jLLogradouro3;
     private javax.swing.JLabel jLLogradouro4;
     private javax.swing.JLabel jLLogradouro5;
     private javax.swing.JLabel jLLogradouro6;
