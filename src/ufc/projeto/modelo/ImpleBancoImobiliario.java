@@ -7,8 +7,6 @@ package ufc.projeto.modelo;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
 import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;

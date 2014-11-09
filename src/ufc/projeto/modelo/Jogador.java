@@ -8,7 +8,7 @@ public interface Jogador {
 	
     public void debitarSaldo(double valor);
     
-    public void adicionarLogradouro(LogradourosAdquirivel logradourosAdquiriveis);
+    public void adicionarLogradouro(LogradouroAdquirivel logradourosAdquiriveis);
     
     public void creditarSaldo(double valor);
     
@@ -22,5 +22,5 @@ public interface Jogador {
     
     public Perfil obterPerfil();
     
-    public Iterator<LogradourosAdquirivel> obterLogradourosAdquiridos();
+    public Iterator<LogradouroAdquirivel> obterLogradourosAdquiridos();
 }

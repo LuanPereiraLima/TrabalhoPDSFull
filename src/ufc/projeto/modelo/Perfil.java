@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface Perfil {
     
-    public URL getUrlNome();
-    public URL getUrlImagem();
-    public List<URL> getUtlGif();
+    public URL obterUrlNome();
+    public URL obterUrlImagem();
+    public List<URL> obterUtlGif();
 }

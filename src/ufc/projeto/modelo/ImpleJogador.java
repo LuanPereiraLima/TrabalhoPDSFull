@@ -18,7 +18,7 @@ import ufc.projeto.modelo.enumeracoes.ValoresInicias;
 public class ImpleJogador implements Jogador{
     private double saldo;
     private final Perfil perfil;
-    private final List<LogradourosAdquirivel> logradourosAdquiridos;
+    private final List<LogradouroAdquirivel> logradourosAdquiridos;
     private int posicaoAtual;
     private final Tabuleiro tabuleiro;
     private int quantidadeVezesAndadaUltima;
@@ -38,7 +38,7 @@ public class ImpleJogador implements Jogador{
     }
     
     @Override
-    public void adicionarLogradouro(LogradourosAdquirivel logradourosAdquiriveis){
+    public void adicionarLogradouro(LogradouroAdquirivel logradourosAdquiriveis){
         this.logradourosAdquiridos.add(logradourosAdquiriveis);
     }
     
@@ -70,7 +70,7 @@ public class ImpleJogador implements Jogador{
     }
 
     @Override
-    public Iterator<LogradourosAdquirivel> obterLogradourosAdquiridos() {
+    public Iterator<LogradouroAdquirivel> obterLogradourosAdquiridos() {
         return logradourosAdquiridos.iterator();
     }
 

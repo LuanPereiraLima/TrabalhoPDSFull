@@ -24,17 +24,17 @@ public class ImplePerfil implements Perfil{
     }
 
     @Override
-    public URL getUrlNome() {
+    public URL obterUrlNome() {
         return urlNome;
     }
 
     @Override
-    public URL getUrlImagem() {
+    public URL obterUrlImagem() {
         return urlImagem;
     }
 
     @Override
-    public List<URL> getUtlGif() {
+    public List<URL> obterUtlGif() {
         return utlGif;
     }
 }

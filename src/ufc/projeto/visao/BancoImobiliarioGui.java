@@ -25,7 +25,7 @@ import ufc.projeto.modelo.ImpleJogador;
 import ufc.projeto.modelo.ImpleTabuleiro;
 import ufc.projeto.modelo.Jogador;
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.modelo.LogradourosAdquirivel;
+import ufc.projeto.modelo.LogradouroAdquirivel;
 import ufc.projeto.modelo.Tabuleiro;
 import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
 import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
@@ -508,13 +508,13 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
     
     private void preenchendoPerfil(List<Perfil> perfil){
         Perfil per = perfil.get(Jogadores.JOGADOR_1.obterValor());
-            jLPersonagem1.setIcon(new ImageIcon(per.getUrlImagem()));
-            jLPersonagemJogador1.setIcon(new ImageIcon(per.getUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
-            jLNomeDoJagador1.setIcon(new ImageIcon(per.getUrlNome()));
+            jLPersonagem1.setIcon(new ImageIcon(per.obterUrlImagem()));
+            jLPersonagemJogador1.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
+            jLNomeDoJagador1.setIcon(new ImageIcon(per.obterUrlNome()));
         per = perfil.get(Jogadores.JOGADOR_2.obterValor());
-            jLPersonagem2.setIcon(new ImageIcon(per.getUrlImagem()));
-            jLPersonagemJogador2.setIcon(new ImageIcon(per.getUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
-            jLNomeDoJagador2.setIcon(new ImageIcon(per.getUrlNome()));
+            jLPersonagem2.setIcon(new ImageIcon(per.obterUrlImagem()));
+            jLPersonagemJogador2.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
+            jLNomeDoJagador2.setIcon(new ImageIcon(per.obterUrlNome()));
     }
     
     private void mudarImagemPersonagem(JLabel personagem, URL imagem){
@@ -718,16 +718,16 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                 
                 if(jogador.getX() == posicaoInicial && (jogador.getY() <= MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor() && jogador.getY() > MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor())){
                     jogador.setLocation(jogador.getX(), jogador.getY()-1);
-                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_COSTAS_MOVIMENTACAO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_COSTAS_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getY() == MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor() && (jogador.getX() >= posicaoInicial && jogador.getX() < diferencial)){
                     jogador.setLocation(jogador.getX()+1, jogador.getY());
-                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_DIREITA_MOVIMENTACAO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_DIREITA_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getX() == diferencial && (jogador.getY() >= MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor() && jogador.getY() < MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor())){
                     jogador.setLocation(jogador.getX(), jogador.getY()+1);
-                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_MOVIMENTACAO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getY() == MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor() && (jogador.getX() <= diferencial && jogador.getX() > posicaoInicial)){
                     jogador.setLocation(jogador.getX()-1, jogador.getY());
-                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_ESQUERDA_MOVIMENTACAO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_ESQUERDA_MOVIMENTACAO_VALOR.obterValor()));
                 } 
                 try {
                     Thread.sleep(MovimentacaoPersonagemGui.TEMPO_DE_UM_PASSO.obterValor());
@@ -830,7 +830,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                 @Override
                 public void run() {
                     movimentar(quantidadePulos, jLPersonagemJogador1, jogador);
-                    mudarImagemPersonagem(jLPersonagemJogador1, jogador.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jLPersonagemJogador1, jogador.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
                 }
             }).start();
         
@@ -841,7 +841,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                 @Override
                 public void run() {
                     movimentar(quantidadePulos, jLPersonagemJogador2, jogador);
-                    mudarImagemPersonagem(jLPersonagemJogador2, jogador.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
+                    mudarImagemPersonagem(jLPersonagemJogador2, jogador.obterPerfil().obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
                 }
             }).start();
         }
@@ -859,7 +859,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                 
                 if(this.listaJogadores.get(Jogadores.JOGADOR_1.obterValor()).equals(jogador)){
                     jLSaldoJogador1.setText(jogador.obterSaldo()+"");
-                    Iterator<LogradourosAdquirivel> logradouros = jogador.obterLogradourosAdquiridos();
+                    Iterator<LogradouroAdquirivel> logradouros = jogador.obterLogradourosAdquiridos();
                     PTPossesJogador1.setText(null);
                     while(logradouros.hasNext()){
                         Logradouro logradouro = logradouros.next();
@@ -867,7 +867,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                     }
                 }else{
                     jLSaldoJogador2.setText(jogador.obterSaldo()+"");
-                    Iterator<LogradourosAdquirivel> logradouros = jogador.obterLogradourosAdquiridos();
+                    Iterator<LogradouroAdquirivel> logradouros = jogador.obterLogradourosAdquiridos();
                     PTPossesJogador2.setText(null);
                     while(logradouros.hasNext()){
                         Logradouro logradouro = logradouros.next();

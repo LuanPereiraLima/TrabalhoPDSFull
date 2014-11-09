@@ -16,12 +16,12 @@ import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
  *
  * @author S2
  */
-public abstract class LogradourosAdquirivel extends Logradouro{
+public abstract class LogradouroAdquirivel extends Logradouro{
     private double preco;
     private double taxa;
     private Jogador proprietario;
     
-    public LogradourosAdquirivel(URL urlImagem, String nome, String descricao, double preco, double taxa) {
+    public LogradouroAdquirivel(URL urlImagem, String nome, String descricao, double preco, double taxa) {
         super(urlImagem, nome, descricao, true);
         this.preco = preco;
         this.taxa = taxa;

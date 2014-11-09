@@ -16,10 +16,10 @@ import ufc.projeto.modelo.excecoes.LogradouroSemTaxaException;
  *
  * @author S2
  */
-public class LogradourosEspeciais extends Logradouro{
+public class LogradouroEspecial extends Logradouro{
     private final AcoesLogradourosEspeciais acaoLogradouro;
     
-    public LogradourosEspeciais(URL urlImagem, String nome, String descricao, AcoesLogradourosEspeciais acaoLogradouro) {
+    public LogradouroEspecial(URL urlImagem, String nome, String descricao, AcoesLogradourosEspeciais acaoLogradouro) {
         super(urlImagem , nome, descricao, false);
         this.acaoLogradouro = acaoLogradouro;
     }

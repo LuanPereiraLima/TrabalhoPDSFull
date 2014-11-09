@@ -15,7 +15,7 @@ import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
  *
  * @author S2
  */
-public class Empresa extends LogradourosAdquirivel{
+public class Empresa extends LogradouroAdquirivel{
     public Empresa(URL urlImagem, String nome, String descricao, double preco, double taxa) {
         super(urlImagem, nome, descricao, preco, taxa);
     }

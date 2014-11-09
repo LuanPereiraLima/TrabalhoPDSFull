@@ -7,6 +7,7 @@
 package ufc.projeto.visao;
 
 import static java.lang.Thread.sleep;
+import java.net.URL;
 import java.util.ArrayList;
 import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
 import java.util.Iterator;
@@ -14,10 +15,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import ufc.projeto.visao.criacao.PerfilEscolhaPersonagens;
 import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.modelo.Perfil;
 import ufc.projeto.visao.criacao.ImplePerfilEscolhaPersonagens;
+import ufc.projeto.visao.dialogos.DialogoFimDeJogo;
 
 /**
  *
@@ -31,8 +32,10 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
     
     private Iterator<Perfil> imagensJogador1;
     private Iterator<Perfil> imagensJogador2;
-    private Perfil perfilJg1Selecionado;
-    private Perfil perfilJg2Selecionado;
+    private URL perfilJg1SelecionadoComparar;
+    private URL perfilJg2SelecionadoComparar;
+    private Perfil perfilSelecionadoJg1;
+    private Perfil perfilSelecionadoJg2;
     
     public SelecionaJogadoresGui() {
         initComponents();
@@ -43,19 +46,21 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         
         if(imagensJogador1.hasNext()){
             Perfil perfil = imagensJogador1.next();
-            perfilJg1Selecionado = perfil;
-            imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
-            jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-            jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            perfilJg1SelecionadoComparar = perfil.obterUrlImagem();
+            perfilSelecionadoJg1 = perfil;
+            imagemJogador1.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+            jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.obterUrlNome()));
+            jLGifPersonagens1.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
         }
         
         if(imagensJogador2.hasNext()){
             imagensJogador2.next();
             Perfil perfil = imagensJogador2.next();
-            perfilJg2Selecionado = perfil;
-            imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
-            jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-            jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            perfilSelecionadoJg2 = perfil;
+            perfilJg2SelecionadoComparar = perfil.obterUrlImagem();
+            imagemJogador2.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+            jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.obterUrlNome()));
+            jLGifPersonagens2.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
         }
         
             
@@ -70,11 +75,12 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
     private void ModificarPerfilJogador1(){
         if(imagensJogador1.hasNext()){
             Perfil perfil = imagensJogador1.next();
-            if(!perfilJg2Selecionado.equals(perfil)){
-                perfilJg1Selecionado = perfil;
-                imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
-                jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            if(!perfilJg2SelecionadoComparar.equals(perfil.obterUrlImagem())){
+                perfilJg1SelecionadoComparar = perfil.obterUrlImagem();
+                perfilSelecionadoJg1 = perfil;
+                imagemJogador1.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+                jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.obterUrlNome()));
+                jLGifPersonagens1.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador1();
             }
@@ -82,11 +88,12 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         else{
             imagensJogador1 = new ImplePerfilEscolhaPersonagens().obterImagens();
             Perfil perfil = imagensJogador1.next();
-            if(!perfilJg2Selecionado.equals(perfil)){
-                perfilJg1Selecionado = perfil;
-                imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
-                jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            if(!perfilJg2SelecionadoComparar.equals(perfil.obterUrlImagem())){
+                perfilJg1SelecionadoComparar = perfil.obterUrlImagem();
+                perfilSelecionadoJg2 = perfil;
+                imagemJogador1.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+                jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.obterUrlNome()));
+                jLGifPersonagens1.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador1();
             }
@@ -97,22 +104,24 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
     private void ModificarPerfilJogador2(){
         if(imagensJogador2.hasNext()){
             Perfil perfil = imagensJogador2.next();
-            if(!perfilJg1Selecionado.equals(perfil)){
-                perfilJg2Selecionado = perfil;
-                imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
-                jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            if(!perfilJg1SelecionadoComparar.equals(perfil.obterUrlImagem())){
+                perfilJg2SelecionadoComparar = perfil.obterUrlImagem();
+                perfilSelecionadoJg1 = perfil;
+                imagemJogador2.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+                jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.obterUrlNome()));
+                jLGifPersonagens2.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador2();
             }
         }else{
             imagensJogador2 = new ImplePerfilEscolhaPersonagens().obterImagens();
             Perfil perfil = imagensJogador2.next();
-            if(!perfilJg1Selecionado.equals(perfil)){
-                perfilJg2Selecionado = perfil;
-                imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
-                jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
+            if(!perfilJg1SelecionadoComparar.equals(perfil.obterUrlImagem())){
+                perfilJg2SelecionadoComparar = perfil.obterUrlImagem();
+                perfilSelecionadoJg2 = perfil;
+                imagemJogador2.setIcon(new ImageIcon(perfil.obterUrlImagem()));
+                jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.obterUrlNome()));
+                jLGifPersonagens2.setIcon(new ImageIcon(perfil.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador2();
             }
@@ -270,10 +279,11 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                try {
                     sleep(500);
                     List<Perfil> lista = new ArrayList<>();
-                    lista.add(perfilJg1Selecionado);
-                    lista.add(perfilJg2Selecionado);
+                    lista.add(perfilSelecionadoJg1);
+                    lista.add(perfilSelecionadoJg2);
                     dispose();
-                    new BancoImobiliarioGui(lista).setVisible(true);
+                   new  DialogoFimDeJogo(null, perfilSelecionadoJg1);
+                  //new BancoImobiliarioGui(lista).setVisible(true);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(InicioGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
