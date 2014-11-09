@@ -5,16 +5,16 @@
  */
 package ufc.projeto.modelo;
 
-import java.net.URL;
-import java.util.List;
-
 /**
  *
  * @author Loopback
  */
-public interface Perfil {
-    
-    public URL getUrlNome();
-    public URL getUrlImagem();
-    public List<URL> getUtlGif();
+class JogoTerminadoException extends Exception {
+
+    @Override
+    public String getMessage() {
+        return "Fim de Jogo";
+    }
+
+   
 }

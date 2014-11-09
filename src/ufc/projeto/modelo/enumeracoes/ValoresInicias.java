@@ -10,7 +10,7 @@ package ufc.projeto.modelo.enumeracoes;
  * @author Loopback
  */
 public enum ValoresInicias {
-    SALDO_INICIAL_JOGADORES(10000);
+    SALDO_INICIAL_JOGADORES(1000);
     
     private double valor;
 

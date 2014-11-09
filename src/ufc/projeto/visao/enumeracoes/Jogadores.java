@@ -10,7 +10,7 @@ package ufc.projeto.visao.enumeracoes;
  * @author Loopback
  */
 public enum Jogadores {
-    JOGADOR_1(0), JOGADOR_2(1);
+    JOGADOR_1(0), JOGADOR_2(1), ARWEN(1), GANDALF(2), FRODO(3), LEGOLAS(4); 
     
     private int valor;
 

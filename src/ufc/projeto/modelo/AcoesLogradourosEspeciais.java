@@ -6,7 +6,7 @@
 
 package ufc.projeto.modelo;
 
-import ufc.projeto.excecoes.JogadorSemSaldoException;
+import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
 
 /**
  *

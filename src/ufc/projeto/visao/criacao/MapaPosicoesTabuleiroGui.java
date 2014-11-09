@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.modelo;
+package ufc.projeto.visao.criacao;
 
-import java.net.URL;
-import java.util.List;
+import java.awt.Point;
+import java.util.HashMap;
 
 /**
  *
  * @author Loopback
  */
-public interface Perfil {
-    
-    public URL getUrlNome();
-    public URL getUrlImagem();
-    public List<URL> getUtlGif();
+public interface MapaPosicoesTabuleiroGui{
+    public abstract HashMap<Point, Integer> obterPosicoes();
 }

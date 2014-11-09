@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.modelo;
-
-import java.net.URL;
-import java.util.List;
+package ufc.projeto.modelo.excecoes;
 
 /**
  *
  * @author Loopback
  */
-public interface Perfil {
+class JogoTerminadoException extends Exception {
+
+    @Override
+    public String getMessage() {
+        return "Fim de Jogo.";
+    }
+
     
-    public URL getUrlNome();
-    public URL getUrlImagem();
-    public List<URL> getUtlGif();
+    
 }

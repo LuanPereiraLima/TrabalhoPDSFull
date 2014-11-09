@@ -6,7 +6,7 @@
 
 package ufc.projeto.visao;
 
-import ufc.projeto.visao.fabricas.DiretorMapaPosicoesTabuleiroGui;
+import ufc.projeto.visao.criacao.ImpleMapaPosicoesTabuleiroGui;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.net.URL;
@@ -27,14 +27,14 @@ import ufc.projeto.modelo.Jogador;
 import ufc.projeto.modelo.Logradouro;
 import ufc.projeto.modelo.LogradourosAdquirivel;
 import ufc.projeto.modelo.Tabuleiro;
-import ufc.projeto.excecoes.JogadorSemSaldoException;
-import ufc.projeto.excecoes.LogradouroNaoPodeSerAdquiridoException;
-import ufc.projeto.excecoes.LogradouroSemPrecoException;
-import ufc.projeto.excecoes.PosicaoIvalidaParaLogradouroException;
-import ufc.projeto.excecoes.PropriedadeJaAdquiridaException;
+import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
+import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
+import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
+import ufc.projeto.modelo.excecoes.PosicaoIvalidaParaLogradouroException;
+import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
 import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
 import ufc.projeto.visao.dialogos.DialogoLogradouro;
-import ufc.projeto.visao.dialogos.FabricaDialogo;
+import ufc.projeto.visao.dialogos.criacao.CriadorDialogo;
 import ufc.projeto.visao.enumeracoes.Jogadores;
 import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.visao.enumeracoes.MovimentacaoPersonagemGui;
@@ -63,7 +63,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
          //funcao responsavel por redimensionar a tela de acordo com a resoloucao.
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode() ;
         
-        pontosLogradourosGui = new DiretorMapaPosicoesTabuleiroGui().obterHashMapaPosicoes();
+        pontosLogradourosGui = new ImpleMapaPosicoesTabuleiroGui().obterPosicoes();
         listaJogadores = new ArrayList<>();
         Tabuleiro tabuleiro = new ImpleTabuleiro();
         
@@ -890,7 +890,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     @Override
     public boolean logradouroAcionado(Logradouro logradouroAcionado, int tipoMensagem) {
-        DialogoLogradouro dialogo = new FabricaDialogo().obterDialogo(this, tipoMensagem, logradouroAcionado);
+        DialogoLogradouro dialogo = new CriadorDialogo().obterDialogo(this, tipoMensagem, logradouroAcionado);
         return dialogo.obterConfirmacao();
     }
 }

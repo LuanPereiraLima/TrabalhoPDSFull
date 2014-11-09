@@ -7,11 +7,11 @@
 package ufc.projeto.modelo;
 
 import java.net.URL;
-import ufc.projeto.excecoes.JogadorSemSaldoException;
-import ufc.projeto.excecoes.LogradouroNaoPodeSerAdquiridoException;
-import ufc.projeto.excecoes.LogradouroSemPrecoException;
-import ufc.projeto.excecoes.LogradouroSemTaxaException;
-import ufc.projeto.excecoes.PropriedadeJaAdquiridaException;
+import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
+import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
+import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
+import ufc.projeto.modelo.excecoes.LogradouroSemTaxaException;
+import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
 
 /**
  *

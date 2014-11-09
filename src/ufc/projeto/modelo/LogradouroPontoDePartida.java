@@ -1,14 +1,14 @@
 package ufc.projeto.modelo;
 
+import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
 import java.net.URL;
-import ufc.projeto.excecoes.LogradouroSemPrecoException;
-import ufc.projeto.excecoes.LogradouroSemTaxaException;
-import ufc.projeto.excecoes.PropriedadeJaAdquiridaException;
-import ufc.projeto.excecoes.LogradouroNaoPodeSerAdquiridoException;
-import ufc.projeto.excecoes.*;
+import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
+import ufc.projeto.modelo.excecoes.LogradouroSemTaxaException;
+import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
+import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
 
 public class LogradouroPontoDePartida extends Logradouro{
-    private double saldoAcrescentar;
+    private final double saldoAcrescentar;
 
     public LogradouroPontoDePartida(URL urlImagem, String nome, String descricao,
                     boolean adquirivel, double saldoAcrescentar) {

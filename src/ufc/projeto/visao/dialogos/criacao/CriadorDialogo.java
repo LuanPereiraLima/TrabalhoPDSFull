@@ -1,10 +1,16 @@
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao.dialogos.criacao;
 
 import javax.swing.JFrame;
 import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
+import ufc.projeto.visao.dialogos.DialogoCobrarLogradouro;
+import ufc.projeto.visao.dialogos.DialogoLogradouro;
+import ufc.projeto.visao.dialogos.DialogoMostrarLogradouro;
+import ufc.projeto.visao.dialogos.DialogoVendaLogradouro;
 
-public class FabricaDialogo {
+public class CriadorDialogo implements FabricaDialogo{
+    
+    @Override
     public DialogoLogradouro obterDialogo(JFrame telaPorTras,int tipoInformacao, Logradouro logradouro){
         if(tipoInformacao == Dialogos.DIALOGO_VENDA_LOGRADOURO.obterValor())
             return new DialogoVendaLogradouro(telaPorTras, logradouro);

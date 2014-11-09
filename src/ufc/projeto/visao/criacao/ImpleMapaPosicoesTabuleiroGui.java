@@ -3,18 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.fabricas;
+package ufc.projeto.visao.criacao;
 
 import java.awt.Point;
+import java.util.HashMap;
 
 /**
  *
  * @author Loopback
  */
-public class DiretorMapaPosicoesTabuleiroGui extends FrabricaMapaPosicoesTabuleiroGui{
+public class ImpleMapaPosicoesTabuleiroGui implements MapaPosicoesTabuleiroGui{
+    private final HashMap<Point, Integer> mapaPosicoes;
 
+    public ImpleMapaPosicoesTabuleiroGui() {
+        mapaPosicoes = new HashMap<>();
+    }
+   
     @Override
-    public void preenchendoPosicoes() {
+    public HashMap<Point, Integer> obterPosicoes() {
         mapaPosicoes.put(new Point(330, 604), 0);
         mapaPosicoes.put(new Point(330, 484), 1);
         mapaPosicoes.put(new Point(330, 364), 2);
@@ -34,6 +40,7 @@ public class DiretorMapaPosicoesTabuleiroGui extends FrabricaMapaPosicoesTabulei
         mapaPosicoes.put(new Point(810, 604), 16);
         mapaPosicoes.put(new Point(690, 604), 17);
         mapaPosicoes.put(new Point(570, 604), 18);
-        mapaPosicoes.put(new Point(450, 604), 19);
+        mapaPosicoes.put(new Point(450, 604), 19); 
+        return mapaPosicoes;
     }
 }

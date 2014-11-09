@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import ufc.projeto.excecoes.LogradouroSemTaxaException;
+import ufc.projeto.modelo.excecoes.LogradouroSemTaxaException;
 import ufc.projeto.modelo.Logradouro;
 
 

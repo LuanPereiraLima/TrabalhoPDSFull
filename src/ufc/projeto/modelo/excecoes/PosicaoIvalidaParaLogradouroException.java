@@ -1,4 +1,4 @@
-package ufc.projeto.excecoes;
+package ufc.projeto.modelo.excecoes;
 
 public class PosicaoIvalidaParaLogradouroException extends Exception{
 	

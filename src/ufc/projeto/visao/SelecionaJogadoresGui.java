@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import ufc.projeto.visao.fabricas.FabricaDePerfilEscolhaPersonagens;
+import ufc.projeto.visao.criacao.PerfilEscolhaPersonagens;
 import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.modelo.Perfil;
-import ufc.projeto.visao.fabricas.DiretorDePerfilEscolhaPersonagens;
+import ufc.projeto.visao.criacao.ImplePerfilEscolhaPersonagens;
 
 /**
  *
@@ -31,7 +31,6 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
     
     private Iterator<Perfil> imagensJogador1;
     private Iterator<Perfil> imagensJogador2;
-    private final FabricaDePerfilEscolhaPersonagens fabricaDeImagens;
     private Perfil perfilJg1Selecionado;
     private Perfil perfilJg2Selecionado;
     
@@ -39,10 +38,8 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     
-        fabricaDeImagens = new DiretorDePerfilEscolhaPersonagens();
-        imagensJogador1 = fabricaDeImagens.obterImagens();
-        imagensJogador2 = fabricaDeImagens.obterImagens();
-        
+        imagensJogador1 = new ImplePerfilEscolhaPersonagens().obterImagens();
+        imagensJogador2 = new ImplePerfilEscolhaPersonagens().obterImagens();
         
         if(imagensJogador1.hasNext()){
             Perfil perfil = imagensJogador1.next();
@@ -83,7 +80,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             }
         }
         else{
-            imagensJogador1 = fabricaDeImagens.obterImagens();
+            imagensJogador1 = new ImplePerfilEscolhaPersonagens().obterImagens();
             Perfil perfil = imagensJogador1.next();
             if(!perfilJg2Selecionado.equals(perfil)){
                 perfilJg1Selecionado = perfil;
@@ -109,7 +106,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                 ModificarPerfilJogador2();
             }
         }else{
-            imagensJogador2 = fabricaDeImagens.obterImagens();
+            imagensJogador2 = new ImplePerfilEscolhaPersonagens().obterImagens();
             Perfil perfil = imagensJogador2.next();
             if(!perfilJg1Selecionado.equals(perfil)){
                 perfilJg2Selecionado = perfil;

@@ -35,6 +35,20 @@ public enum Midia {
     IMAGEM_GANDALF_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
     IMAGEM_GANDALF_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
     
+    IMAGEM_LEGOLAS_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/GandalfPGifFrente.png"),
+    
+    IMAGEM_LEGOLAS_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifFrente.gif"),
+    IMAGEM_LEGOLAS_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifEsquerda.gif"), 
+    IMAGEM_LEGOLAS_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
+    IMAGEM_LEGOLAS_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
+    
+    IMAGEM_ARWEN_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/GandalfPGifFrente.png"),
+    
+    IMAGEM_ARWEN_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifFrente.gif"),
+    IMAGEM_ARWEN_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifEsquerda.gif"), 
+    IMAGEM_ARWEN_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
+    IMAGEM_ARWEN_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
+    
     IMAGEM_GIF_FRENTE_PARADO_VALOR(0),
     IMAGEM_GIF_COSTAS_MOVIMENTACAO_VALOR(1),IMAGEM_GIF_DIREITA_MOVIMENTACAO_VALOR(2),
     IMAGEM_GIF_FRENTE_MOVIMENTACAO_VALOR(3), IMAGEM_GIF_ESQUERDA_MOVIMENTACAO_VALOR(4),

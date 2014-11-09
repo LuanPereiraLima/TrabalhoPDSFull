@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import ufc.projeto.excecoes.LogradouroSemPrecoException;
+import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.modelo.Logradouro;
 
 
