@@ -96,7 +96,7 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1376, 728));
         setLayout(null);
 
-        jButton1.setText("Jogar Novamente");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/JogarNovamenteNormal.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -105,14 +105,14 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(450, 630, 260, 50);
 
-        jButton2.setText("Sair do Jogo");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/SairDoJogoNormal.png"))); // NOI18N
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
             }
         });
         add(jButton2);
-        jButton2.setBounds(720, 630, 270, 50);
+        jButton2.setBounds(720, 630, 260, 50);
         add(JLImagemGif);
         JLImagemGif.setBounds(130, 610, 50, 80);
         add(JLImagemCampeao);
@@ -125,9 +125,6 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
         JLImagemNome.setBounds(340, 110, 100, 30);
 
         JLBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/backgroundFimDeJogo.jpg"))); // NOI18N
-        JLBackground.setMaximumSize(new java.awt.Dimension(1376, 728));
-        JLBackground.setMinimumSize(new java.awt.Dimension(1376, 728));
-        JLBackground.setPreferredSize(new java.awt.Dimension(1376, 728));
         add(JLBackground);
         JLBackground.setBounds(0, 0, 1376, 720);
     }// </editor-fold>//GEN-END:initComponents

@@ -3,22 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.enumeracoes;
+package ufc.projeto.visao.controladores.midia;
 
 /**
  *
  * @author Loopback
  */
-public enum Dialogos {
-    DIALOGO_VENDA_LOGRADOURO(1), DIALOGO_MOSTRAR_INFORMACAO(2), DIALOGO_COBRAR_TAXA(3);
-    
-    private int valor; 
-	
-    private Dialogos(int valor) {
+public enum Audio {
+     LEFT(1), RIGHT(2), NORMAL(3), EXTERNAL_BUFFER_SIZE(524288);
+     
+    private final int valor;
+
+    private Audio(int valor) {
         this.valor = valor;
     }
-    
-  
+     
     public int obterValor(){
         return this.valor;
     }

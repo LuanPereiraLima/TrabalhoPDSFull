@@ -10,7 +10,7 @@ package ufc.projeto.visao.enumeracoes;
  * @author Loopback
  */
 public enum Midia {
-    TEMPO_CRIAR_SOM_BOTAO(100),CAMINHO_SOM_BOTOES("src/ufc/projeto/midia/somBotoes.wav"), LEFT(1), RIGH(2), NORMAL(3), EXTERNAL_BUFFER_SIZE(524288), //128k
+    TEMPO_CRIAR_SOM_BOTAO(100),CAMINHO_SOM_BOTOES("src/ufc/projeto/midia/somBotoes.wav"),
     IMAGEM_JOGAR_ESCURO("/ufc/projeto/imagens/botoes/JogarEscuro.png"), IMAGEM_JOGAR_NORMAL("/ufc/projeto/imagens/botoes/JogarNormal.png"), 
     IMAGEM_JOGAR_CLARO("/ufc/projeto/imagens/botoes/JogarClaro.png"), IMAGEM_SAIR_ESCURO("/ufc/projeto/imagens/botoes/SairEscuro.png"),
     IMAGEM_SAIR_CLARO("/ufc/projeto/imagens/botoes/SairClaro.png"), IMAGEM_SAIR_NORMAL("/ufc/projeto/imagens/botoes/SairNormal.png"),
@@ -35,19 +35,19 @@ public enum Midia {
     IMAGEM_GANDALF_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
     IMAGEM_GANDALF_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
     
-    IMAGEM_LEGOLAS_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/GandalfPGifFrente.png"),
+    IMAGEM_LEGOLAS_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/LegolasMGifFrente.gif"),
     
-    IMAGEM_LEGOLAS_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifFrente.gif"),
-    IMAGEM_LEGOLAS_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifEsquerda.gif"), 
-    IMAGEM_LEGOLAS_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
-    IMAGEM_LEGOLAS_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
+    IMAGEM_LEGOLAS_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifFrente.gif"),
+    IMAGEM_LEGOLAS_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifEsquerda.gif"), 
+    IMAGEM_LEGOLAS_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifDireita.gif"),
+    IMAGEM_LEGOLAS_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifCostas.gif"),
     
-    IMAGEM_ARWEN_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/GandalfPGifFrente.png"),
+    IMAGEM_ARWEN_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/ArwenMGifFrente.gif"),
     
-    IMAGEM_ARWEN_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifFrente.gif"),
-    IMAGEM_ARWEN_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifEsquerda.gif"), 
-    IMAGEM_ARWEN_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
-    IMAGEM_ARWEN_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
+    IMAGEM_ARWEN_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifFrente.gif"),
+    IMAGEM_ARWEN_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifEsquerda.gif"), 
+    IMAGEM_ARWEN_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifDireita.gif"),
+    IMAGEM_ARWEN_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifCostas.gif"),
     
     IMAGEM_GIF_FRENTE_PARADO_VALOR(0),
     IMAGEM_GIF_COSTAS_MOVIMENTACAO_VALOR(1),IMAGEM_GIF_DIREITA_MOVIMENTACAO_VALOR(2),

@@ -10,7 +10,6 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.SourceDataLine; 
 import javax.sound.sampled.UnsupportedAudioFileException; 
-import ufc.projeto.visao.enumeracoes.Midia;
  
 public class ControladorDeAudio extends Thread { 
  
@@ -20,7 +19,7 @@ public class ControladorDeAudio extends Thread {
  
     public ControladorDeAudio(String wavfile) { 
         filename = wavfile;
-        curPosition = Midia.NORMAL.obterValor();
+        curPosition = Audio.NORMAL.obterValor();
     } 
  
     public ControladorDeAudio(String wavfile, int p) { 
@@ -60,15 +59,15 @@ public class ControladorDeAudio extends Thread {
         if (auline.isControlSupported(FloatControl.Type.PAN)) { 
             FloatControl pan = (FloatControl) auline
                     .getControl(FloatControl.Type.PAN);
-            if (curPosition == Midia.RIGH.obterValor()) 
+            if (curPosition == Audio.RIGHT.obterValor()) 
                 pan.setValue(1.0f);
-            else if (curPosition == Midia.LEFT.obterValor()) 
+            else if (curPosition == Audio.LEFT.obterValor()) 
                 pan.setValue(-1.0f);
         } 
  
         auline.start();
         int nBytesRead = 0;
-        byte[] abData = new byte[Midia.EXTERNAL_BUFFER_SIZE.obterValor()];
+        byte[] abData = new byte[Audio.EXTERNAL_BUFFER_SIZE.obterValor()];
  
         try { 
             while (nBytesRead != -1) { 

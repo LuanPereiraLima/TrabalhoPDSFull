@@ -23,11 +23,11 @@ public class ImagensDoGifParaPerfilArwen implements ImagensDoGifParaPerfil{
     
     @Override
     public List<URL> obterImagens() {
-        imagens.add(getClass().getResource(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterCaminho()));
-        imagens.add(getClass().getResource(Midia.IMAGEM_FRODO_GIF_COSTAS_MOVIMENTACAO.obterCaminho()));
-        imagens.add(getClass().getResource(Midia.IMAGEM_FRODO_GIF_DIREITA_MOVIMENTACAO.obterCaminho()));
-        imagens.add(getClass().getResource(Midia.IMAGEM_FRODO_GIF_FRENTE_MOVIMENTACAO.obterCaminho()));
-        imagens.add(getClass().getResource(Midia.IMAGEM_FRODO_GIF_ESQUERDA_MOVIMENTACAO.obterCaminho()));
+        imagens.add(getClass().getResource(Midia.IMAGEM_ARWEN_GIF_FRENTE_PARADO.obterCaminho()));
+        imagens.add(getClass().getResource(Midia.IMAGEM_ARWEN_GIF_COSTAS_MOVIMENTACAO.obterCaminho()));
+        imagens.add(getClass().getResource(Midia.IMAGEM_ARWEN_GIF_DIREITA_MOVIMENTACAO.obterCaminho()));
+        imagens.add(getClass().getResource(Midia.IMAGEM_ARWEN_GIF_FRENTE_MOVIMENTACAO.obterCaminho()));
+        imagens.add(getClass().getResource(Midia.IMAGEM_ARWEN_GIF_ESQUERDA_MOVIMENTACAO.obterCaminho()));
         return imagens;
     }
 }

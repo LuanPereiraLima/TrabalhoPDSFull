@@ -11,6 +11,7 @@ import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import ufc.projeto.visao.enumeracoes.Midia;
 
 /**
@@ -24,7 +25,7 @@ public class InicioGui extends javax.swing.JFrame {
      */
     public InicioGui() {
         initComponents();
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -133,20 +134,8 @@ public class InicioGui extends javax.swing.JFrame {
                 }
             }
         }).start();
-            
-          new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-               try {
-                    sleep(500);
-                    dispose();
-                    new SelecionaJogadoresGui().setVisible(true);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(InicioGui.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }).start();
+          
+          new ProximaTela(this).start();
     }//GEN-LAST:event_btJogarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
@@ -167,6 +156,24 @@ public class InicioGui extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btSairActionPerformed
 
+    private class ProximaTela extends Thread{
+        private JFrame tela;
+        
+        public ProximaTela(JFrame tela) {
+            this.tela = tela;
+        }
+        @Override
+            public void run() {
+               try {
+                    sleep(500);
+                    setVisible(false);
+                    new SelecionaJogadoresGui(tela).setVisible(true);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InicioGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+    }
+        
     private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
          btSair.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_SAIR_CLARO.obterCaminho())));
     }//GEN-LAST:event_btSairMouseEntered

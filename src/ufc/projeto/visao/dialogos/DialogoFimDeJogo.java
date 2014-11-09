@@ -36,7 +36,7 @@ public class DialogoFimDeJogo extends JDialog implements EventosDialogo{
     @Override
     public void cliqueBotao1() {
         this.dispose();
-        new SelecionaJogadoresGui().setVisible(true);
+        //
     }
 
     @Override
