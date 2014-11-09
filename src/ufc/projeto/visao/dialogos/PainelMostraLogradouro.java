@@ -1,4 +1,4 @@
-package ufc.projeto.gui.dialogos;
+package ufc.projeto.visao.dialogos;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;

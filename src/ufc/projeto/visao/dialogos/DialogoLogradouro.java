@@ -1,4 +1,4 @@
-package ufc.projeto.gui.dialogos;
+package ufc.projeto.visao.dialogos;
 import java.awt.Point;
 import javax.swing.JDialog;
 import javax.swing.JFrame;

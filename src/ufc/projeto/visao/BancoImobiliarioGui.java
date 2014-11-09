@@ -6,8 +6,10 @@
 
 package ufc.projeto.visao;
 
+import ufc.projeto.visao.fabricas.DiretorMapaPosicoesTabuleiroGui;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,13 +32,14 @@ import ufc.projeto.excecoes.LogradouroNaoPodeSerAdquiridoException;
 import ufc.projeto.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.excecoes.PosicaoIvalidaParaLogradouroException;
 import ufc.projeto.excecoes.PropriedadeJaAdquiridaException;
-import ufc.projeto.gui.controlador.midia.AePlayWave;
-import ufc.projeto.gui.dialogos.DialogoLogradouro;
-import ufc.projeto.gui.dialogos.FabricaDialogo;
-import ufc.projeto.gui.enumeracoes.Jogadores;
-import ufc.projeto.gui.enumeracoes.Midia;
-import ufc.projeto.gui.enumeracoes.MovimentacaoPersonagemGui;
+import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
+import ufc.projeto.visao.dialogos.DialogoLogradouro;
+import ufc.projeto.visao.dialogos.FabricaDialogo;
+import ufc.projeto.visao.enumeracoes.Jogadores;
+import ufc.projeto.visao.enumeracoes.Midia;
+import ufc.projeto.visao.enumeracoes.MovimentacaoPersonagemGui;
 import ufc.projeto.modelo.Perfil;
+import ufc.projeto.visao.dialogos.DialogoMostrarLogradouro;
 
 
 /**
@@ -60,7 +63,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
          //funcao responsavel por redimensionar a tela de acordo com a resoloucao.
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode() ;
         
-        pontosLogradourosGui = new ImpleFrabricaMapaPosicoesTabuleiroGui().obterHashMapaPosicoes();
+        pontosLogradourosGui = new DiretorMapaPosicoesTabuleiroGui().obterHashMapaPosicoes();
         listaJogadores = new ArrayList<>();
         Tabuleiro tabuleiro = new ImpleTabuleiro();
         
@@ -138,7 +141,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
         jLPersonagemJogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/Costas.gif"))); // NOI18N
         getContentPane().add(jLPersonagemJogador1);
-        jLPersonagemJogador1.setBounds(340, 630, 50, 50);
+        jLPersonagemJogador1.setBounds(340, 630, 50, 85);
 
         jLCorrecaoGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/CorreçãoDoGif.gif"))); // NOI18N
         getContentPane().add(jLCorrecaoGif);
@@ -146,7 +149,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
         jLPersonagemJogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/Conversa.gif"))); // NOI18N
         getContentPane().add(jLPersonagemJogador2);
-        jLPersonagemJogador2.setBounds(390, 630, 50, 50);
+        jLPersonagemJogador2.setBounds(390, 630, 50, 85);
 
         jLNomeDoJagador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/LegolasNome.png"))); // NOI18N
         getContentPane().add(jLNomeDoJagador2);
@@ -169,82 +172,187 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
         jSPossesjogador2.setBounds(1173, 510, 175, 190);
 
         jLLogradouro11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro11MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro11);
         jLLogradouro11.setBounds(930, 124, 120, 120);
 
         jLLogradouro12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro12MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro12);
         jLLogradouro12.setBounds(930, 244, 120, 120);
 
         jLLogradouro13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro13MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro13);
         jLLogradouro13.setBounds(930, 364, 120, 120);
 
         jLLogradouro14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro14MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro14);
         jLLogradouro14.setBounds(930, 484, 120, 120);
 
         jLLogradouro15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro15MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro15);
         jLLogradouro15.setBounds(930, 604, 120, 120);
 
         jLLogradouro16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro16MouseClicked(evt);
+            }
+        });
+        jLLogradouro16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLLogradouro16KeyPressed(evt);
+            }
+        });
         getContentPane().add(jLLogradouro16);
         jLLogradouro16.setBounds(810, 604, 120, 120);
 
         jLLogradouro17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro17MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro17);
         jLLogradouro17.setBounds(690, 604, 120, 120);
 
         jLLogradouro18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro18MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro18);
         jLLogradouro18.setBounds(570, 604, 120, 120);
 
         jLLogradouro19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro19MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro19);
         jLLogradouro19.setBounds(450, 604, 120, 120);
 
         jLLogradouro0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro0MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro0);
         jLLogradouro0.setBounds(330, 604, 120, 120);
 
         jLLogradouro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro1MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro1);
         jLLogradouro1.setBounds(330, 484, 120, 120);
 
         jLLogradouro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro2MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro2);
         jLLogradouro2.setBounds(330, 364, 120, 120);
 
         jLLogradouro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro3MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro3);
         jLLogradouro3.setBounds(330, 244, 120, 120);
 
         jLLogradouro6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro6MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro6);
         jLLogradouro6.setBounds(450, 4, 120, 120);
 
         jLLogradouro7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro7MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro7);
         jLLogradouro7.setBounds(570, 4, 120, 120);
 
         jLLogradouro8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro8MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro8);
         jLLogradouro8.setBounds(690, 4, 120, 120);
 
         jLLogradouro9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro9MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro9);
         jLLogradouro9.setBounds(810, 4, 120, 120);
 
         jLLogradouro10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro10MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro10);
         jLLogradouro10.setBounds(930, 4, 120, 120);
 
         jLLogradouro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro4MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro4);
         jLLogradouro4.setBounds(330, 124, 120, 120);
 
         jLLogradouro5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/olho-de-sauron.jpg"))); // NOI18N
+        jLLogradouro5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLLogradouro5MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLLogradouro5);
         jLLogradouro5.setBounds(330, 4, 120, 120);
 
@@ -317,7 +425,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
         jBFinalizarJogada2.setBounds(1175, 189, 170, 40);
 
         jCDado1Jogador2.setBackground(new java.awt.Color(102, 102, 102));
-        jCDado1Jogador2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
+        jCDado1Jogador2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         jCDado1Jogador2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCDado1Jogador2ActionPerformed(evt);
@@ -327,7 +435,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
         jCDado1Jogador2.setBounds(1260, 30, 40, 20);
 
         jCDado2Jogador2.setBackground(new java.awt.Color(102, 102, 102));
-        jCDado2Jogador2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
+        jCDado2Jogador2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         getContentPane().add(jCDado2Jogador2);
         jCDado2Jogador2.setBounds(1310, 30, 40, 20);
 
@@ -385,8 +493,8 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     private synchronized void efeitoFinalizarJogada(JLabel jogador){
         try {
-            new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-            Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterTempo());
+            new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+            Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterValor());
             
             if(jogador.equals(jLPersonagemJogador2))
                 jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
@@ -401,12 +509,16 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
     private void preenchendoPerfil(List<Perfil> perfil){
         Perfil per = perfil.get(Jogadores.JOGADOR_1.obterValor());
             jLPersonagem1.setIcon(new ImageIcon(per.getUrlImagem()));
-            jLPersonagemJogador1.setIcon(new ImageIcon(per.getUtlGif()));
+            jLPersonagemJogador1.setIcon(new ImageIcon(per.getUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
             jLNomeDoJagador1.setIcon(new ImageIcon(per.getUrlNome()));
         per = perfil.get(Jogadores.JOGADOR_2.obterValor());
             jLPersonagem2.setIcon(new ImageIcon(per.getUrlImagem()));
-            jLPersonagemJogador2.setIcon(new ImageIcon(per.getUtlGif()));
+            jLPersonagemJogador2.setIcon(new ImageIcon(per.getUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
             jLNomeDoJagador2.setIcon(new ImageIcon(per.getUrlNome()));
+    }
+    
+    private void mudarImagemPersonagem(JLabel personagem, URL imagem){
+        personagem.setIcon(new ImageIcon(imagem));
     }
     
     private void jBFinalizarJogada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFinalizarJogada2ActionPerformed
@@ -494,8 +606,102 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
             }
          }
     }//GEN-LAST:event_jBFinalizarJogada2MousePressed
+
+    private void visualizarLogradouros(Point point){
+         try {
+            Logradouro logradouro = mBancoImobiliario.getInformacaoLogradoEscolhido(pontosLogradourosGui.get(point));
+            DialogoLogradouro dialogoLogradouro = new DialogoMostrarLogradouro(this, logradouro);
+        } catch (PosicaoIvalidaParaLogradouroException ex) {
+            ex.printStackTrace();
+        }
+    }
     
-    private synchronized void movimentar(int posicoes, JLabel jogador){
+    private void jLLogradouro0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro0MouseClicked
+        visualizarLogradouros(jLLogradouro0.getLocation());
+    }//GEN-LAST:event_jLLogradouro0MouseClicked
+
+    
+    private void jLLogradouro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro1MouseClicked
+        visualizarLogradouros(jLLogradouro1.getLocation());
+    }//GEN-LAST:event_jLLogradouro1MouseClicked
+
+    private void jLLogradouro2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro2MouseClicked
+         visualizarLogradouros(jLLogradouro2.getLocation());
+    }//GEN-LAST:event_jLLogradouro2MouseClicked
+
+    private void jLLogradouro3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro3MouseClicked
+       visualizarLogradouros(jLLogradouro3.getLocation());
+    }//GEN-LAST:event_jLLogradouro3MouseClicked
+
+    private void jLLogradouro4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro4MouseClicked
+        visualizarLogradouros(jLLogradouro4.getLocation());
+    }//GEN-LAST:event_jLLogradouro4MouseClicked
+
+    private void jLLogradouro5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro5MouseClicked
+        visualizarLogradouros(jLLogradouro5.getLocation());
+    }//GEN-LAST:event_jLLogradouro5MouseClicked
+
+    private void jLLogradouro6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro6MouseClicked
+        visualizarLogradouros(jLLogradouro6.getLocation());
+    }//GEN-LAST:event_jLLogradouro6MouseClicked
+
+    private void jLLogradouro7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro7MouseClicked
+        visualizarLogradouros(jLLogradouro7.getLocation());
+    }//GEN-LAST:event_jLLogradouro7MouseClicked
+
+    private void jLLogradouro8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro8MouseClicked
+        visualizarLogradouros(jLLogradouro8.getLocation());
+    }//GEN-LAST:event_jLLogradouro8MouseClicked
+
+    private void jLLogradouro9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro9MouseClicked
+         visualizarLogradouros(jLLogradouro9.getLocation());
+    }//GEN-LAST:event_jLLogradouro9MouseClicked
+
+    private void jLLogradouro10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro10MouseClicked
+         visualizarLogradouros(jLLogradouro10.getLocation());
+    }//GEN-LAST:event_jLLogradouro10MouseClicked
+
+    private void jLLogradouro11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro11MouseClicked
+         visualizarLogradouros(jLLogradouro11.getLocation());
+    }//GEN-LAST:event_jLLogradouro11MouseClicked
+
+    private void jLLogradouro12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro12MouseClicked
+         visualizarLogradouros(jLLogradouro12.getLocation());
+    }//GEN-LAST:event_jLLogradouro12MouseClicked
+
+    private void jLLogradouro13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro13MouseClicked
+         visualizarLogradouros(jLLogradouro13.getLocation());
+    }//GEN-LAST:event_jLLogradouro13MouseClicked
+
+    private void jLLogradouro14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro14MouseClicked
+         visualizarLogradouros(jLLogradouro14.getLocation());
+    }//GEN-LAST:event_jLLogradouro14MouseClicked
+
+    private void jLLogradouro15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro15MouseClicked
+         visualizarLogradouros(jLLogradouro15.getLocation());
+    }//GEN-LAST:event_jLLogradouro15MouseClicked
+
+    private void jLLogradouro16KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLLogradouro16KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLLogradouro16KeyPressed
+
+    private void jLLogradouro16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro16MouseClicked
+        visualizarLogradouros(jLLogradouro16.getLocation());
+    }//GEN-LAST:event_jLLogradouro16MouseClicked
+
+    private void jLLogradouro17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro17MouseClicked
+        visualizarLogradouros(jLLogradouro17.getLocation());
+    }//GEN-LAST:event_jLLogradouro17MouseClicked
+
+    private void jLLogradouro18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro18MouseClicked
+        visualizarLogradouros(jLLogradouro18.getLocation());
+    }//GEN-LAST:event_jLLogradouro18MouseClicked
+
+    private void jLLogradouro19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLLogradouro19MouseClicked
+        visualizarLogradouros(jLLogradouro19.getLocation());
+    }//GEN-LAST:event_jLLogradouro19MouseClicked
+    
+    private synchronized void movimentar(int posicoes, JLabel jogador, Jogador jogado){
         int diferencial, posicaoInicial;
         if(jogador.equals(jLPersonagemJogador1)){
             diferencial = MovimentacaoPersonagemGui.POSICAO_DIFERENCIAL_JG1.obterValor();
@@ -506,20 +712,23 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
             posicaoInicial = MovimentacaoPersonagemGui.POSICAO_INICIAl_JG2.obterValor();
         }
         
+        
+        
           for(int i=1; i<=(posicoes*MovimentacaoPersonagemGui.SOMATORIA_PULOS.obterValor()); i++){
                 
                 if(jogador.getX() == posicaoInicial && (jogador.getY() <= MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor() && jogador.getY() > MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor())){
                     jogador.setLocation(jogador.getX(), jogador.getY()-1);
-
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_COSTAS_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getY() == MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor() && (jogador.getX() >= posicaoInicial && jogador.getX() < diferencial)){
                     jogador.setLocation(jogador.getX()+1, jogador.getY());
-
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_DIREITA_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getX() == diferencial && (jogador.getY() >= MovimentacaoPersonagemGui.POSICAO_MINIMA_CORDENADA_Y.obterValor() && jogador.getY() < MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor())){
                     jogador.setLocation(jogador.getX(), jogador.getY()+1);
-
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_MOVIMENTACAO_VALOR.obterValor()));
                 }else if(jogador.getY() == MovimentacaoPersonagemGui.POSICAO_MAXIMA_CORDENADA_Y.obterValor() && (jogador.getX() <= diferencial && jogador.getX() > posicaoInicial)){
                     jogador.setLocation(jogador.getX()-1, jogador.getY());
-                }
+                    mudarImagemPersonagem(jogador, jogado.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_ESQUERDA_MOVIMENTACAO_VALOR.obterValor()));
+                } 
                 try {
                     Thread.sleep(MovimentacaoPersonagemGui.TEMPO_DE_UM_PASSO.obterValor());
                 } catch (InterruptedException ex) {
@@ -620,7 +829,8 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
                 @Override
                 public void run() {
-                    movimentar(quantidadePulos, jLPersonagemJogador1);
+                    movimentar(quantidadePulos, jLPersonagemJogador1, jogador);
+                    mudarImagemPersonagem(jLPersonagemJogador1, jogador.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
                 }
             }).start();
         
@@ -630,7 +840,8 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
                 @Override
                 public void run() {
-                    movimentar(quantidadePulos, jLPersonagemJogador2);
+                    movimentar(quantidadePulos, jLPersonagemJogador2, jogador);
+                    mudarImagemPersonagem(jLPersonagemJogador2, jogador.obterPerfil().getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor()));
                 }
             }).start();
         }

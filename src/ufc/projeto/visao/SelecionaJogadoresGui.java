@@ -8,15 +8,16 @@ package ufc.projeto.visao;
 
 import static java.lang.Thread.sleep;
 import java.util.ArrayList;
-import ufc.projeto.gui.controlador.midia.AePlayWave;
+import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import ufc.projeto.gui.controlador.midia.FabricaDeImagens;
-import ufc.projeto.gui.enumeracoes.Midia;
+import ufc.projeto.visao.fabricas.FabricaDePerfilEscolhaPersonagens;
+import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.modelo.Perfil;
+import ufc.projeto.visao.fabricas.DiretorDePerfilEscolhaPersonagens;
 
 /**
  *
@@ -30,7 +31,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
     
     private Iterator<Perfil> imagensJogador1;
     private Iterator<Perfil> imagensJogador2;
-    private final FabricaDeImagens fabricaDeImagens;
+    private final FabricaDePerfilEscolhaPersonagens fabricaDeImagens;
     private Perfil perfilJg1Selecionado;
     private Perfil perfilJg2Selecionado;
     
@@ -38,7 +39,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     
-        fabricaDeImagens = new FabricaDeImagens();
+        fabricaDeImagens = new DiretorDePerfilEscolhaPersonagens();
         imagensJogador1 = fabricaDeImagens.obterImagens();
         imagensJogador2 = fabricaDeImagens.obterImagens();
         
@@ -48,7 +49,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             perfilJg1Selecionado = perfil;
             imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
             jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-            jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif()));
+            jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
         }
         
         if(imagensJogador2.hasNext()){
@@ -57,7 +58,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             perfilJg2Selecionado = perfil;
             imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
             jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-            jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif()));
+            jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
         }
         
             
@@ -76,7 +77,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                 perfilJg1Selecionado = perfil;
                 imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
                 jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif()));
+                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador1();
             }
@@ -88,7 +89,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                 perfilJg1Selecionado = perfil;
                 imagemJogador1.setIcon(new ImageIcon(perfil.getUrlImagem()));
                 jLNomeDoPersonagem1.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif()));
+                jLGifPersonagens1.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador1();
             }
@@ -103,7 +104,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                 perfilJg2Selecionado = perfil;
                 imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
                 jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif()));
+                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador2();
             }
@@ -114,7 +115,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                 perfilJg2Selecionado = perfil;
                 imagemJogador2.setIcon(new ImageIcon(perfil.getUrlImagem()));
                 jLNomeDoPersonagem2.setIcon(new ImageIcon(perfil.getUrlNome()));
-                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif()));
+                jLGifPersonagens2.setIcon(new ImageIcon(perfil.getUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             }else{
                 ModificarPerfilJogador2();
             }
@@ -255,8 +256,8 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-                    Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterTempo());
+                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterValor());
                     btIniciar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_NORMAL.obterCaminho())));
                     
                 } catch (InterruptedException ex) {
@@ -274,6 +275,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
                     List<Perfil> lista = new ArrayList<>();
                     lista.add(perfilJg1Selecionado);
                     lista.add(perfilJg2Selecionado);
+                    dispose();
                     new BancoImobiliarioGui(lista).setVisible(true);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(InicioGui.class.getName()).log(Level.SEVERE, null, ex);
@@ -313,8 +315,8 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-                    Thread.sleep(Midia.CAMINHO_SOM_BOTOES.obterTempo());
+                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    Thread.sleep(Midia.CAMINHO_SOM_BOTOES.obterValor());
                     btVoltar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_VOLTAR_NORMAL.obterCaminho())));
                     dispose();
                 } catch (InterruptedException ex) {

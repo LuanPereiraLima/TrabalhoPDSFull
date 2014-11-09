@@ -1,6 +1,6 @@
-package ufc.projeto.gui.dialogos;
+package ufc.projeto.visao.dialogos;
 
-import ufc.projeto.gui.enumeracoes.Dialogos;
+import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
 
 public class FabricaPainelDialogo {
@@ -12,7 +12,6 @@ public class FabricaPainelDialogo {
             return new PainelMostraLogradouro(logradouro);
         if(tipoInformacao == Dialogos.DIALOGO_COBRAR_TAXA.obterValor())
             return new PainelCobrarLogradouro(logradouro);
-
         return null;
     }
 }

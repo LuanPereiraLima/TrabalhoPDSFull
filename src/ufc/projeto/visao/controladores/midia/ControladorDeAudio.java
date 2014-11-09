@@ -1,4 +1,4 @@
-package ufc.projeto.gui.controlador.midia;
+package ufc.projeto.visao.controladores.midia;
 
 import java.io.File; 
 import java.io.IOException; 
@@ -10,45 +10,37 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException; 
 import javax.sound.sampled.SourceDataLine; 
 import javax.sound.sampled.UnsupportedAudioFileException; 
+import ufc.projeto.visao.enumeracoes.Midia;
  
-public class AePlayWave extends Thread { 
+public class ControladorDeAudio extends Thread { 
  
-    private String filename;
+    private final String filename;
  
-    private Position curPosition;
+    private final int curPosition;
  
-    private final int EXTERNAL_BUFFER_SIZE = 524288; // 128Kb 
- 
-    enum Position { 
-        LEFT, RIGHT, NORMAL
-    };
- 
-    public AePlayWave(String wavfile) { 
+    public ControladorDeAudio(String wavfile) { 
         filename = wavfile;
-        curPosition = Position.NORMAL;
+        curPosition = Midia.NORMAL.obterValor();
     } 
  
-    public AePlayWave(String wavfile, Position p) { 
+    public ControladorDeAudio(String wavfile, int p) { 
         filename = wavfile;
         curPosition = p;
     } 
  
+    @Override
     public void run() { 
  
         File soundFile = new File(filename);
         if (!soundFile.exists()) { 
-            System.err.println("Wave file not found: " + filename);
+            System.err.println("Arquivo não existe: " + filename);
             return;
         } 
  
         AudioInputStream audioInputStream = null;
         try { 
             audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-        } catch (UnsupportedAudioFileException e1) { 
-            e1.printStackTrace();
-            return;
-        } catch (IOException e1) { 
-            e1.printStackTrace();
+        } catch (UnsupportedAudioFileException | IOException e1) { 
             return;
         } 
  
@@ -60,25 +52,23 @@ public class AePlayWave extends Thread {
             auline = (SourceDataLine) AudioSystem.getLine(info);
             auline.open(format);
         } catch (LineUnavailableException e) { 
-            e.printStackTrace();
             return;
         } catch (Exception e) { 
-            e.printStackTrace();
             return;
         } 
  
         if (auline.isControlSupported(FloatControl.Type.PAN)) { 
             FloatControl pan = (FloatControl) auline
                     .getControl(FloatControl.Type.PAN);
-            if (curPosition == Position.RIGHT) 
+            if (curPosition == Midia.RIGH.obterValor()) 
                 pan.setValue(1.0f);
-            else if (curPosition == Position.LEFT) 
+            else if (curPosition == Midia.LEFT.obterValor()) 
                 pan.setValue(-1.0f);
         } 
  
         auline.start();
         int nBytesRead = 0;
-        byte[] abData = new byte[EXTERNAL_BUFFER_SIZE];
+        byte[] abData = new byte[Midia.EXTERNAL_BUFFER_SIZE.obterValor()];
  
         try { 
             while (nBytesRead != -1) { 
@@ -87,7 +77,6 @@ public class AePlayWave extends Thread {
                     auline.write(abData, 0, nBytesRead);
             } 
         } catch (IOException e) { 
-            e.printStackTrace();
             return;
         } finally { 
             auline.drain();

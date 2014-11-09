@@ -7,16 +7,14 @@ package ufc.projeto.modelo;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import ufc.projeto.gui.enumeracoes.Dialogos;
+import ufc.projeto.visao.enumeracoes.Dialogos;
 
 import ufc.projeto.excecoes.JogadorSemSaldoException;
 import ufc.projeto.excecoes.LogradouroNaoPodeSerAdquiridoException;
 import ufc.projeto.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.excecoes.PosicaoIvalidaParaLogradouroException;
 import ufc.projeto.excecoes.PropriedadeJaAdquiridaException;
-import ufc.projeto.gui.enumeracoes.Jogadores;
+import ufc.projeto.visao.enumeracoes.Jogadores;
 
 /**
  *
@@ -38,7 +36,7 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
     }
    
     @Override
-    public void jogarAVez(int numeroDados) throws LogradouroNaoPodeSerAdquiridoException, JogadorSemSaldoException, PropriedadeJaAdquiridaException, LogradouroSemPrecoException, PosicaoIvalidaParaLogradouroException{
+    public void jogarAVez(int numeroDados) throws LogradouroNaoPodeSerAdquiridoException, PropriedadeJaAdquiridaException, LogradouroSemPrecoException, PosicaoIvalidaParaLogradouroException{
         //Obtendo a proixma posicao até a que ele se moverá
         int posicaoAFrenteJogador = jogadorDestaVez.obterPosicaoAtual()+1;
         
@@ -52,7 +50,7 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
         acoesDoJogo.andarCasas(jogadorDestaVez, numeroDados);
         
         //Realizando todas as ações ao passar por logradouro
-        executandoAcoesDoPasseiPorCimaDoLogradouro(posicaoAFrenteJogador, posicaoAFrenteJogador);
+        executandoAcoesDoPasseiPorCimaDoLogradouro(posicaoAFrenteJogador, jogadorDestaVez.obterPosicaoAtual());
       
         //obtendo o logradouro
         Logradouro logradouroAtual = getInformacaoLogradoEscolhido(jogadorDestaVez.obterPosicaoAtual());
@@ -68,12 +66,12 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
         mudarVezJogador();
     }   
     
-    private void executandoAcoesDoPasseiPorCimaDoLogradouro(final int posicaoAFrenteJogador, final int posicaoAtual) throws PosicaoIvalidaParaLogradouroException{
-
-        for(int i=tabuleiro.posicaoCircularCorrespondente(posicaoAFrenteJogador); i < posicaoAtual; i++){
-            System.out.println(tabuleiro.posicaoCircularCorrespondente(i));
-            Logradouro logradouroMomentaneo = getInformacaoLogradoEscolhido(tabuleiro.posicaoCircularCorrespondente(i));
+    private void executandoAcoesDoPasseiPorCimaDoLogradouro(int posicaoAFrenteJogador, int posicaoAtual) throws PosicaoIvalidaParaLogradouroException{
+        int posicaoCorrespondente = tabuleiro.posicaoCircularCorrespondente(posicaoAFrenteJogador);
+        while(posicaoCorrespondente!=posicaoAtual){
+            Logradouro logradouroMomentaneo = getInformacaoLogradoEscolhido(tabuleiro.posicaoCircularCorrespondente(posicaoCorrespondente));
             logradouroMomentaneo.passeiPorEsseLogradouro(jogadorDestaVez);
+            posicaoCorrespondente = tabuleiro.posicaoCircularCorrespondente(++posicaoCorrespondente);
         } 
     }
     

@@ -1,4 +1,4 @@
-package ufc.projeto.gui.dialogos;
+package ufc.projeto.visao.dialogos;
 
 public interface EventosDialogo {
 	public void cliqueBotao1();

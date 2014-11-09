@@ -33,7 +33,7 @@ public class LogradouroPontoDePartida extends Logradouro{
 
     @Override
     public void passeiPorEsseLogradouro(Jogador jogador) {	
-        jogador.creditarSaldo(this.saldoAcrescentar);
+        jogador.creditarSaldo(saldoAcrescentar);
     }
 
     @Override

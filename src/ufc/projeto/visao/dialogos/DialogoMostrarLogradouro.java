@@ -1,7 +1,7 @@
-package ufc.projeto.gui.dialogos;
+package ufc.projeto.visao.dialogos;
 
 import javax.swing.JFrame;
-import ufc.projeto.gui.enumeracoes.Dialogos;
+import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
 
 public class DialogoMostrarLogradouro extends DialogoLogradouro{

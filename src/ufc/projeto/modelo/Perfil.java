@@ -6,6 +6,7 @@
 package ufc.projeto.modelo;
 
 import java.net.URL;
+import java.util.List;
 
 /**
  *
@@ -14,9 +15,9 @@ import java.net.URL;
 public class Perfil {
     private URL urlNome;
     private URL urlImagem;
-    private URL utlGif;
+    private List<URL> utlGif;
 
-    public Perfil(URL urlNome, URL urlImagem, URL urlGif) {
+    public Perfil(URL urlNome, URL urlImagem, List<URL> urlGif) {
         this.urlNome = urlNome;
         this.urlImagem = urlImagem;
         this.utlGif = urlGif;
@@ -30,7 +31,7 @@ public class Perfil {
         return urlImagem;
     }
 
-    public URL getUtlGif() {
+    public List<URL> getUtlGif() {
         return utlGif;
     }
 }

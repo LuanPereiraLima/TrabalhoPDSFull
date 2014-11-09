@@ -7,11 +7,11 @@
 package ufc.projeto.visao;
 
 import static java.lang.Thread.sleep;
-import ufc.projeto.gui.controlador.midia.AePlayWave;
+import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import ufc.projeto.gui.enumeracoes.Midia;
+import ufc.projeto.visao.enumeracoes.Midia;
 
 /**
  *
@@ -125,7 +125,7 @@ public class InicioGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
                     Thread.sleep(300);
                     btJogar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_NORMAL.obterCaminho())));
                 } catch (InterruptedException ex) {
@@ -156,8 +156,8 @@ public class InicioGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-                    Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterTempo());
+                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterValor());
                     System.exit(0);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SelecionaJogadoresGui.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,7 +194,7 @@ public class InicioGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new AePlayWave(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
                     Thread.sleep(300);
                     jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_CREDITO_NORMAL.obterCaminho())));
                 } catch (InterruptedException ex) {
