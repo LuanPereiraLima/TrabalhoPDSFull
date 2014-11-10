@@ -1,6 +1,6 @@
 package ufc.projeto.visao;
 
-import ufc.projeto.visao.enumeracoes.Dialogos;
+import ufc.projeto.modelo.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
 
 public class CriadorPainelDialogo implements FabricaPainelDialogo{

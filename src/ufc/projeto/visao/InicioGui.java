@@ -7,12 +7,13 @@
 package ufc.projeto.visao;
 
 import static java.lang.Thread.sleep;
-import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
+import ufc.projeto.visao.controlador.midia.ControladorDeAudio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import ufc.projeto.visao.enumeracoes.Midia;
+import ufc.projeto.visao.enumeracoes.MidiaBotoes;
 
 /**
  *
@@ -120,15 +121,15 @@ public class InicioGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJogarActionPerformed
-        btJogar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_ESCURO.obterCaminho())));
+        btJogar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_ESCURO.obterCaminho())));
         
           new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
                     Thread.sleep(300);
-                    btJogar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_NORMAL.obterCaminho())));
+                    btJogar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NORMAL.obterCaminho())));
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SelecionaJogadoresGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -139,14 +140,14 @@ public class InicioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btJogarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        btSair.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_SAIR_ESCURO.obterCaminho())));  
+        btSair.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_SAIR_ESCURO.obterCaminho())));  
         
           new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-                    Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterValor());
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    Thread.sleep(MidiaBotoes.TEMPO_CRIAR_SOM_BOTAO.obterValor());
                     System.exit(0);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SelecionaJogadoresGui.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,19 +176,19 @@ public class InicioGui extends javax.swing.JFrame {
     }
         
     private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
-         btSair.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_SAIR_CLARO.obterCaminho())));
+         btSair.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_SAIR_CLARO.obterCaminho())));
     }//GEN-LAST:event_btSairMouseEntered
 
     private void btSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseExited
-         btSair.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_SAIR_NORMAL.obterCaminho())));
+         btSair.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_SAIR_NORMAL.obterCaminho())));
     }//GEN-LAST:event_btSairMouseExited
 
     private void btJogarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btJogarMouseEntered
-        btJogar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_CLARO.obterCaminho())));
+        btJogar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_CLARO.obterCaminho())));
     }//GEN-LAST:event_btJogarMouseEntered
 
     private void btJogarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btJogarMouseExited
-        btJogar.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_NORMAL.obterCaminho())));
+        btJogar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NORMAL.obterCaminho())));
     }//GEN-LAST:event_btJogarMouseExited
 
     private void btJogarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btJogarMousePressed
@@ -195,15 +196,15 @@ public class InicioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_btJogarMousePressed
 
     private void jBBotaoCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBotaoCreditosActionPerformed
-          jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_CREDITO_ESCURO.obterCaminho())));
+          jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_CREDITO_ESCURO.obterCaminho())));
         
           new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
                     Thread.sleep(300);
-                    jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_CREDITO_NORMAL.obterCaminho())));
+                    jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_CREDITO_NORMAL.obterCaminho())));
                 } catch (InterruptedException ex) {
                     Logger.getLogger(SelecionaJogadoresGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -229,11 +230,11 @@ public class InicioGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jBBotaoCreditosMouseReleased
 
     private void jBBotaoCreditosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBBotaoCreditosMouseEntered
-        jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_CREDITO_CLARO.obterCaminho())));
+        jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_CREDITO_CLARO.obterCaminho())));
     }//GEN-LAST:event_jBBotaoCreditosMouseEntered
 
     private void jBBotaoCreditosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBBotaoCreditosMouseExited
-        jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_CREDITO_NORMAL.obterCaminho())));
+        jBBotaoCreditos.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_CREDITO_NORMAL.obterCaminho())));
     }//GEN-LAST:event_jBBotaoCreditosMouseExited
 
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked

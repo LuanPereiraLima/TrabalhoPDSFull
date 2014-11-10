@@ -6,7 +6,6 @@
 
 package ufc.projeto.visao;
 
-import ufc.projeto.visao.criacao.ImpleMapaPosicoesTabuleiroGui;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.net.URL;
@@ -32,11 +31,12 @@ import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
 import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.modelo.excecoes.PosicaoIvalidaParaLogradouroException;
 import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
-import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
-import ufc.projeto.visao.enumeracoes.Jogadores;
+import ufc.projeto.visao.controlador.midia.ControladorDeAudio;
+import ufc.projeto.modelo.enumeracoes.Jogadores;
 import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.visao.enumeracoes.MovimentacaoPersonagemGui;
 import ufc.projeto.modelo.Perfil;
+import ufc.projeto.visao.enumeracoes.MidiaBotoes;
 
 
 /**
@@ -490,13 +490,13 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     private synchronized void efeitoFinalizarJogada(JLabel jogador){
         try {
-            new ControladorDeAudio(Midia.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-            Thread.sleep(Midia.TEMPO_CRIAR_SOM_BOTAO.obterValor());
+            new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+            Thread.sleep(MidiaBotoes.TEMPO_CRIAR_SOM_BOTAO.obterValor());
             
             if(jogador.equals(jLPersonagemJogador2))
-                jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
+                jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
             else
-                jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
+                jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
             
         } catch (InterruptedException ex) {
             Logger.getLogger(BancoImobiliarioGui.class.getName()).log(Level.SEVERE, null, ex);
@@ -523,19 +523,19 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
     }//GEN-LAST:event_jBFinalizarJogada2ActionPerformed
 
     private void jBFinalizarJogada1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada1MouseEntered
-        jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_CLARO.obterCaminho())));
+        jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_CLARO.obterCaminho())));
     }//GEN-LAST:event_jBFinalizarJogada1MouseEntered
 
     private void jBFinalizarJogada1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada1MouseExited
-        jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
+        jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
     }//GEN-LAST:event_jBFinalizarJogada1MouseExited
 
     private void jBFinalizarJogada2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada2MouseEntered
-        jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_CLARO.obterCaminho())));
+        jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_CLARO.obterCaminho())));
     }//GEN-LAST:event_jBFinalizarJogada2MouseEntered
 
     private void jBFinalizarJogada2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada2MouseExited
-        jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
+        jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_NORMAL.obterCaminho())));
     }//GEN-LAST:event_jBFinalizarJogada2MouseExited
 
     private void jBFinalizarJogada2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada2MouseClicked
@@ -548,7 +548,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     private void jBFinalizarJogada1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada1MousePressed
           if(jBFinalizarJogada1.isEnabled()){
-            jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_ESCURO.obterCaminho())));
+            jBFinalizarJogada1.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_ESCURO.obterCaminho())));
 
              new Thread(new Runnable() {
                 @Override
@@ -577,7 +577,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     private void jBFinalizarJogada2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBFinalizarJogada2MousePressed
          if(jBFinalizarJogada2.isEnabled()){
-            jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(Midia.IMAGEM_JOGAR_RODADA_ESCURO.obterCaminho())));
+            jBFinalizarJogada2.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_RODADA_ESCURO.obterCaminho())));
 
             new Thread(new Runnable() {
 
@@ -731,7 +731,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
                 } catch (InterruptedException ex) {
                     Logger.getLogger(BancoImobiliarioGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
+          }
     }
     /*
     /**

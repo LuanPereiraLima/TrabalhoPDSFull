@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.criacao;
+package ufc.projeto.visao;
 
-import ufc.projeto.visao.enumeracoes.Jogadores;
+import ufc.projeto.modelo.enumeracoes.Jogadores;
 
 /**
  *

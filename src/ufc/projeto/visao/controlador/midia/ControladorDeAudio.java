@@ -1,4 +1,4 @@
-package ufc.projeto.visao.controladores.midia;
+package ufc.projeto.visao.controlador.midia;
 
 import java.io.File; 
 import java.io.IOException; 

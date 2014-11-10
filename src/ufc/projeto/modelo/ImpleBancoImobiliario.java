@@ -5,15 +5,15 @@
  */
 package ufc.projeto.modelo;
 
+import ufc.projeto.modelo.enumeracoes.Dialogos;
+import ufc.projeto.modelo.enumeracoes.Jogadores;
 import java.util.Iterator;
 import java.util.List;
-import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.excecoes.JogadorSemSaldoException;
 import ufc.projeto.modelo.excecoes.LogradouroNaoPodeSerAdquiridoException;
 import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.modelo.excecoes.PosicaoIvalidaParaLogradouroException;
 import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
-import ufc.projeto.visao.enumeracoes.Jogadores;
 
 /**
  *
