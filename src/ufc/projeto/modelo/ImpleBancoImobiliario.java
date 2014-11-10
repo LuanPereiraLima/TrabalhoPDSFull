@@ -24,7 +24,6 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
     private final Tabuleiro tabuleiro;
     private final AcoesDoJogo acoesDoJogo;
     private Jogador jogadorDestaVez;
-    private boolean jogoTermiando;
 
     public ImpleBancoImobiliario(List<Jogador> listaJogadores, Tabuleiro tabuleiro, AcoesDoJogo acoesDoJogo) {
         this.listaJogadores = listaJogadores;
@@ -37,11 +36,6 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
    
     @Override
     public void jogarAVez(int numeroDados) throws LogradouroNaoPodeSerAdquiridoException, PropriedadeJaAdquiridaException, LogradouroSemPrecoException, PosicaoIvalidaParaLogradouroException{
-        try {
-            verificandoTermino();
-        } catch (JogoTerminadoException ex) {
-            acoesDoJogo.jogoTerminado(jogadorDestaVez);
-        }
         //Obtendo a proixma posicao até a que ele se moverá
         int posicaoAFrenteJogador = jogadorDestaVez.obterPosicaoAtual()+1;
         
@@ -63,10 +57,9 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
             //executando acão sobre logradouro que esta encima
             executandoAcoesDoLogradouro(logradouroAtual);
         } catch (JogoTerminadoException ex) {
+            mudarVezJogador();
             acoesDoJogo.jogoTerminado(jogadorDestaVez);
         }
-        
-        acoesDoJogo.jogoTerminado(jogadorDestaVez);
                       
         //chamada a interface para que os campos sejam atualizados
         acoesDoJogo.atualizarJogo(listaJogadores.iterator());
@@ -85,7 +78,6 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
     }
     
     private void executandoAcoesDoLogradouro(Logradouro logradouroAtual) throws LogradouroNaoPodeSerAdquiridoException, PropriedadeJaAdquiridaException, LogradouroSemPrecoException, PosicaoIvalidaParaLogradouroException, JogoTerminadoException{
-        verificandoTermino();
         //verificando se o logradouro é adquirivel
         if(logradouroAtual.eAdquirivel()){
         	
@@ -97,7 +89,7 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
                         try{
                             logradouroAtual.adquirirPropriedade(jogadorDestaVez);
                         }catch(JogadorSemSaldoException e){
-                            jogoTermiando = true;
+                            mudarVezJogador();
                             acoesDoJogo.jogoTerminado(jogadorDestaVez);
                         }
                 }
@@ -110,7 +102,7 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
                 try{
                     logradouroAtual.realizarAcao(jogadorDestaVez);
                 }catch(JogadorSemSaldoException e){
-                    jogoTermiando = true;
+                    mudarVezJogador();
                     acoesDoJogo.jogoTerminado(jogadorDestaVez);
                 }
             }
@@ -124,6 +116,7 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
             try{
                 logradouroAtual.realizarAcao(jogadorDestaVez);
             }catch(JogadorSemSaldoException e){
+                mudarVezJogador();
                 acoesDoJogo.jogoTerminado(jogadorDestaVez);   
             }
             
@@ -144,11 +137,6 @@ public class ImpleBancoImobiliario implements BancoImobiliario{
         int posicaoDoProximoJogador = (proximaPosicao%listaJogadores.size());
         jogadorDestaVez = listaJogadores.get(posicaoDoProximoJogador);
         acoesDoJogo.mudarJogadores(jogadorDestaVez);
-    }
-    
-    private void verificandoTermino() throws JogoTerminadoException{
-        if(jogoTermiando)
-            throw new JogoTerminadoException();
     }
 
     @Override

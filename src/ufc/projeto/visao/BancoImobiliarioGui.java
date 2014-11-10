@@ -846,7 +846,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     @Override
     public void jogoTerminado(Jogador vencedor) {
-        
+         new DialogoFimDeJogo(this, vencedor.obterPerfil()).setVisible(true);
     }
 
     @Override

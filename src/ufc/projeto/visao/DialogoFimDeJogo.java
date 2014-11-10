@@ -9,7 +9,6 @@ import java.awt.Frame;
 import java.awt.Point;
 import javax.swing.JDialog;
 import ufc.projeto.modelo.Perfil;
-import ufc.projeto.visao.SelecionaJogadoresGui;
 
 /**
  *
@@ -24,12 +23,11 @@ public class DialogoFimDeJogo extends JDialog implements EventosDialogo{
     }
     
     private void iniciandoComponentes(){
-        this.setContentPane(new PainelDialogoFimDeJogo(perfil, this));
+        this.setContentPane(new PainelFimDeJogo(perfil, this));
         this.setModal(true);
         this.setSize(1376, 728);
         this.setLocation(new Point(300, 180));
         this.setUndecorated(true);
-        this.setVisible(true);
         this.pack(); 
     }
 

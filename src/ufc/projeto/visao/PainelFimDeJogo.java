@@ -15,13 +15,13 @@ import ufc.projeto.visao.enumeracoes.Midia;
  *
  * @author Loopback
  */
-public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
-    private EventosDialogo mEventosDialogo;
-    private Perfil perfil;
+public class PainelFimDeJogo extends javax.swing.JPanel {
+    private final EventosDialogo mEventosDialogo;
+    private final Perfil perfil;
     /**
      * Creates new form PainelDialogoFimDeJogo
      */
-    public PainelDialogoFimDeJogo(Perfil perfil, EventosDialogo eventosDialogo) {
+    public PainelFimDeJogo(Perfil perfil, EventosDialogo eventosDialogo) {
         this.mEventosDialogo = eventosDialogo;
         this.perfil = perfil;
         initComponents();
@@ -40,7 +40,7 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
                      try {
                     Thread.sleep(5);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(PainelDialogoFimDeJogo.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PainelFimDeJogo.class.getName()).log(Level.SEVERE, null, ex);
                 }
                     JLImagemGif.setLocation(JLImagemGif.getX()+1, JLImagemGif.getY());
   
@@ -61,7 +61,7 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
                     try {
                         Thread.sleep(5);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(PainelDialogoFimDeJogo.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(PainelFimDeJogo.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
                     JLImagemGif.setLocation(JLImagemGif.getX()-1, JLImagemGif.getY());
@@ -85,10 +85,10 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        JLImagemNome = new javax.swing.JLabel();
         JLImagemGif = new javax.swing.JLabel();
         JLImagemCampeao = new javax.swing.JLabel();
         JLMensagem = new javax.swing.JLabel();
-        JLImagemNome = new javax.swing.JLabel();
         JLBackground = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1376, 728));
@@ -113,16 +113,17 @@ public class PainelDialogoFimDeJogo extends javax.swing.JPanel {
         });
         add(jButton2);
         jButton2.setBounds(720, 630, 260, 50);
+        add(JLImagemNome);
+        JLImagemNome.setBounds(510, 160, 100, 30);
         add(JLImagemGif);
         JLImagemGif.setBounds(130, 610, 50, 80);
         add(JLImagemCampeao);
-        JLImagemCampeao.setBounds(200, 110, 190, 170);
+        JLImagemCampeao.setBounds(370, 160, 180, 170);
 
-        JLMensagem.setText("Parabéns! Você ganhou o jogo!");
+        JLMensagem.setFont(new java.awt.Font("Trajan Pro", 1, 36)); // NOI18N
+        JLMensagem.setText("<html>Parabéns!<br>Você Ganhou <br> o Jogo</html>");
         add(JLMensagem);
-        JLMensagem.setBounds(423, 42, 151, 14);
-        add(JLImagemNome);
-        JLImagemNome.setBounds(340, 110, 100, 30);
+        JLMensagem.setBounds(770, 160, 240, 220);
 
         JLBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/backgroundFimDeJogo.jpg"))); // NOI18N
         add(JLBackground);
