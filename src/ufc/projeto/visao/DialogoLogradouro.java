@@ -34,7 +34,7 @@ public abstract class DialogoLogradouro extends JDialog implements EventosDialog
         private void iniciarComponentes(){
             this.setModal(true);
             this.setSize(480, 310);
-            this.setLocation(new Point(722, 360));
+            this.setLocation(new Point(450, 200));
             this.setUndecorated(true);
             this.setVisible(true);
             this.pack(); 

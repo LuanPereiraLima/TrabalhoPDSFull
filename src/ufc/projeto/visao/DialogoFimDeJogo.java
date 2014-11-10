@@ -26,7 +26,7 @@ public class DialogoFimDeJogo extends JDialog implements EventosDialogo{
         this.setContentPane(new PainelFimDeJogo(perfil, this));
         this.setModal(true);
         this.setSize(1376, 728);
-        this.setLocation(new Point(300, 180));
+        this.setLocation(new Point(0, 0));
         this.setUndecorated(true);
         this.pack(); 
     }
@@ -43,3 +43,4 @@ public class DialogoFimDeJogo extends JDialog implements EventosDialogo{
     }
     
 }
+
