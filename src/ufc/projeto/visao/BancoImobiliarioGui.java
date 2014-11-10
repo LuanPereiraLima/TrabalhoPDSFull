@@ -158,12 +158,14 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
         jLNomeDoJagador1.setBounds(118, 160, 96, 20);
 
         PTPossesJogador1.setEditable(false);
+        PTPossesJogador1.setFont(new java.awt.Font("Trajan Pro", 1, 12)); // NOI18N
         jSPossesjogador1.setViewportView(PTPossesJogador1);
 
         getContentPane().add(jSPossesjogador1);
         jSPossesjogador1.setBounds(29, 510, 175, 190);
 
         PTPossesJogador2.setEditable(false);
+        PTPossesJogador2.setFont(new java.awt.Font("Trajan Pro", 1, 12)); // NOI18N
         jSPossesjogador2.setViewportView(PTPossesJogador2);
 
         getContentPane().add(jSPossesjogador2);

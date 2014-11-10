@@ -29,7 +29,7 @@ public class DiretorLogradouro implements CriadorLogradouros{
                     "Weathertop", "Colina de grande importância! Grande fortaleza do reino de Arthedain, que abriga uma das sete palantíri!", 100, 40));
             
             logradouros.add(new LogradouroEspecial(getClass().getResource("/ufc/projeto/imagens/logradouros/interrogacao.png"), 
-                    "O Tesouro Perdido.", "Você encontrou um tesouro! Efeito: saldo aumentado em 300.", new AcaoModificarDinheiroPositivamente(300)));
+                    "O Tesouro Perdido.", "Você encontrou um tesouro! Efeito: saldo aumentado em 300.", new AcaoModificarDinheiroPositivamente(150)));
 
             logradouros.add(new Imovel(getClass().getResource("/ufc/projeto/imagens/logradouros/Osgiliath.png"), 
                     "Osgiliath", "Despovoada durante a Terceira Idade, que gradualmente caiu em ruínas durante a Guerra do Anel!", 130, 50));

@@ -69,7 +69,7 @@ public class InicioGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btSair);
-        btSair.setBounds(1096, 418, 170, 50);
+        btSair.setBounds(990, 440, 170, 50);
 
         btJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/JogarNormal.png"))); // NOI18N
         btJogar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,7 +89,7 @@ public class InicioGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btJogar);
-        btJogar.setBounds(1097, 288, 170, 50);
+        btJogar.setBounds(990, 310, 170, 50);
 
         jBBotaoCreditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/CreditosNormal.png"))); // NOI18N
         jBBotaoCreditos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,14 +109,14 @@ public class InicioGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jBBotaoCreditos);
-        jBBotaoCreditos.setBounds(1096, 350, 170, 50);
+        jBBotaoCreditos.setBounds(990, 370, 170, 50);
 
         jLCaixaMadeira.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/CaixaDaTelaDeEntrada.jpg"))); // NOI18N
         jLCaixaMadeira.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLCaixaMadeira);
-        jLCaixaMadeira.setBounds(1030, 220, 300, 320);
+        jLCaixaMadeira.setBounds(920, 240, 300, 320);
 
-        backGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/backgroundFimDeJogo.jpg"))); // NOI18N
+        backGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/backgroundInicio.jpg"))); // NOI18N
         backGround.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(backGround);
         backGround.setBounds(0, 0, 1376, 730);
