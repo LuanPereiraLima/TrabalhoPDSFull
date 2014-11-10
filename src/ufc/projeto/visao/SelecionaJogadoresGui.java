@@ -149,11 +149,11 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLGifPersonagens1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/Conversa.gif"))); // NOI18N
+        jLGifPersonagens1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/FrodoMGifFrente.gif"))); // NOI18N
         getContentPane().add(jLGifPersonagens1);
         jLGifPersonagens1.setBounds(260, 70, 50, 85);
 
-        jLGifPersonagens2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/Costas.gif"))); // NOI18N
+        jLGifPersonagens2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/personagens/ArwenMGifFrente.gif"))); // NOI18N
         getContentPane().add(jLGifPersonagens2);
         jLGifPersonagens2.setBounds(1090, 70, 50, 85);
 
@@ -166,6 +166,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         jLNomeDoPersonagem1.setBounds(110, 230, 90, 20);
 
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/VoltarNormal.jpg"))); // NOI18N
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btVoltarMouseEntered(evt);
@@ -189,6 +190,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         btVoltar.setBounds(1130, 580, 170, 50);
 
         btIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/JogarNormal.png"))); // NOI18N
+        btIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btIniciarMouseEntered(evt);
@@ -212,8 +214,9 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         btIniciar.setBounds(60, 580, 170, 50);
 
         btProximaImagemJogador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/setaBotaoPassar.jpg"))); // NOI18N
-        btProximaImagemJogador1.setBorder(null);
+        btProximaImagemJogador1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btProximaImagemJogador1.setBorderPainted(false);
+        btProximaImagemJogador1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btProximaImagemJogador1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btProximaImagemJogador1MouseEntered(evt);
@@ -231,6 +234,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
         btProximaImagemJogador1.setBounds(100, 270, 110, 30);
 
         btProximaImagemJogador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/setaBotaoPassar.jpg"))); // NOI18N
+        btProximaImagemJogador2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btProximaImagemJogador2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btProximaImagemJogador2ActionPerformed(evt);
@@ -261,7 +265,7 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTAO_MADEIRA.obterCaminho()).start();
                     Thread.sleep(MidiaBotoes.TEMPO_CRIAR_SOM_BOTAO.obterValor());
                     btIniciar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NORMAL.obterCaminho())));
                     
@@ -321,8 +325,8 @@ public class SelecionaJogadoresGui extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTOES.obterCaminho()).start();
-                    Thread.sleep(MidiaBotoes.CAMINHO_SOM_BOTOES.obterValor());
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTAO_MADEIRA.obterCaminho()).start();
+                    Thread.sleep(MidiaBotoes.CAMINHO_SOM_BOTAO_MADEIRA.obterValor());
                     btVoltar.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_VOLTAR_NORMAL.obterCaminho())));
                     dispose();
                 } catch (InterruptedException ex) {

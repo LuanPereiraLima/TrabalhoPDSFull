@@ -27,7 +27,7 @@ public abstract class Logradouro {
         this.nome = nome;
         this.descricao = descricao;
         this.adquirivel = adquirivel;
-        this.urlImagem = urlImagem;
+        this.urlImagem = imagem;
     }  
    
     public boolean eAdquirivel(){
@@ -38,8 +38,8 @@ public abstract class Logradouro {
     	return this.nome;
     }
     
-     public String obterUrlUmagem(){
-    	return this.nome;
+     public URL obterUrlImagem(){
+    	return this.urlImagem;
     }
     
     public String obterDescriao(){

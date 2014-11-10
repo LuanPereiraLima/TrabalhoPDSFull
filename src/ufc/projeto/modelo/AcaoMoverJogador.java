@@ -11,7 +11,7 @@ package ufc.projeto.modelo;
  * @author S2
  */
 public class AcaoMoverJogador extends AcoesLogradourosEspeciais{
-    private int quantidadeDeCasasAMovimentar;
+    private final int quantidadeDeCasasAMovimentar;
 
     public AcaoMoverJogador(int posicao) {
         this.quantidadeDeCasasAMovimentar = posicao;

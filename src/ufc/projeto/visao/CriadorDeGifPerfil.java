@@ -16,13 +16,13 @@ public class CriadorDeGifPerfil implements FabricaDeGifPerfil{
     @Override
     public ImagensDoGifParaPerfil criadorDeImagens(int tipo) {
         if(tipo == Jogadores.ARWEN.obterValor())
-            return new ImagensDoGifParaPerfilArwen();
+            return new ImpleImagensDoGifParaPerfilArwen();
         if(tipo == Jogadores.FRODO.obterValor())
-            return new ImagensDoGifParaPerfilFrodo();
+            return new ImpleImagensDoGifParaPerfilFrodo();
         if(tipo == Jogadores.LEGOLAS.obterValor())
-            return new ImagensDoGifParaPerfilLegolas();
+            return new ImpleImagensDoGifParaPerfilLegolas();
         if(tipo == Jogadores.GANDALF.obterValor())
-            return new ImagensDoGifParaPerfilGandolf();
+            return new ImpleImagensDoGifParaPerfilGandolf();
         return null;
     }
     

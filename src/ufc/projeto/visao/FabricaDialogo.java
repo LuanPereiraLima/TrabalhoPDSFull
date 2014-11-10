@@ -7,7 +7,6 @@ package ufc.projeto.visao;
 
 import javax.swing.JFrame;
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.visao.DialogoLogradouro;
 
 /**
  *

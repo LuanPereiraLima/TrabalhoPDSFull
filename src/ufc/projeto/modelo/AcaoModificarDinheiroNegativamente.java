@@ -20,7 +20,7 @@ public class AcaoModificarDinheiroNegativamente extends AcaoModificarSaldo{
     
     @Override
     public void AcaoASerRealizada(Jogador jogador) throws JogadorSemSaldoException{
-    	if(jogador.obterSaldo() >= getValor()){
+    	if(jogador.obterSaldo() > getValor()){
     		jogador.debitarSaldo(this.getValor());
     	}else{
     		throw new JogadorSemSaldoException();

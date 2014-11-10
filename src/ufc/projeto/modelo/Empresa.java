@@ -25,10 +25,9 @@ public class Empresa extends LogradouroAdquirivel{
     	if(ePropriedadeAdquirida()){
             
             if(!jogador.equals(obterProprietario())){
-            double valorCobrarAdquirir = obterTaxa()*jogador.obterValorDados();
-            if(jogador.obterSaldo() >= valorCobrarAdquirir){
-                jogador.debitarSaldo(valorCobrarAdquirir);
-                obterProprietario().creditarSaldo(valorCobrarAdquirir);
+            if(jogador.obterSaldo() > obterTaxa()){
+                jogador.debitarSaldo(obterTaxa());
+                obterProprietario().creditarSaldo(obterTaxa());
             }else
                 throw new JogadorSemSaldoException();
         }

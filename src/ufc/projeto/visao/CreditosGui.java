@@ -5,6 +5,12 @@
  */
 package ufc.projeto.visao;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import ufc.projeto.visao.controlador.midia.ControladorDeAudio;
+import ufc.projeto.visao.enumeracoes.MidiaBotoes;
+
 /**
  *
  * @author Loopback
@@ -38,6 +44,7 @@ public class CreditosGui extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         JBVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/BotaoVoltar.png"))); // NOI18N
+        JBVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JBVoltarMouseClicked(evt);
@@ -68,7 +75,20 @@ public class CreditosGui extends javax.swing.JFrame {
     }//GEN-LAST:event_JBVoltarMouseExited
 
     private void JBVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBVoltarMouseClicked
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new ControladorDeAudio(MidiaBotoes.CAMINHO_SOM_BOTAO_MADEIRA.obterCaminho()).start();
+                    Thread.sleep(300);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SelecionaJogadoresGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }).start();
+        
         dispose();
+        
     }//GEN-LAST:event_JBVoltarMouseClicked
 
 

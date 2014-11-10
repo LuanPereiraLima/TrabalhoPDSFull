@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import ufc.projeto.modelo.Perfil;
 import ufc.projeto.visao.enumeracoes.Midia;
+import ufc.projeto.visao.enumeracoes.MidiaBotoes;
 
 /**
  *
@@ -44,7 +45,7 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
                 }
                     JLImagemGif.setLocation(JLImagemGif.getX()+1, JLImagemGif.getY());
   
-                    if(JLImagemGif.getX()==1220)
+                    if(JLImagemGif.getX()==980)
                         break;
                 }
                 personagemAndandoEsquerda();
@@ -66,7 +67,7 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
                     
                     JLImagemGif.setLocation(JLImagemGif.getX()-1, JLImagemGif.getY());
                     
-                        if(JLImagemGif.getX()==120)
+                        if(JLImagemGif.getX()==390)
                             break;
                 }
                 personagemAndandoDireita();
@@ -83,8 +84,8 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btJogarNovamente = new javax.swing.JButton();
+        btSairDoJogo = new javax.swing.JButton();
         JLImagemNome = new javax.swing.JLabel();
         JLImagemGif = new javax.swing.JLabel();
         JLImagemCampeao = new javax.swing.JLabel();
@@ -96,27 +97,44 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1376, 728));
         setLayout(null);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/JogarNovamenteNormal.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btJogarNovamente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/JogarNovamenteNormal.png"))); // NOI18N
+        btJogarNovamente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btJogarNovamente.setPreferredSize(new java.awt.Dimension(260, 50));
+        btJogarNovamente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btJogarNovamenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btJogarNovamenteMouseExited(evt);
+            }
+        });
+        btJogarNovamente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btJogarNovamenteActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(450, 630, 260, 50);
+        add(btJogarNovamente);
+        btJogarNovamente.setBounds(450, 630, 260, 50);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/SairDoJogoNormal.png"))); // NOI18N
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btSairDoJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/botoes/SairDoJogoNormal.png"))); // NOI18N
+        btSairDoJogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btSairDoJogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btSairDoJogoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btSairDoJogoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btSairDoJogoMouseExited(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(720, 630, 260, 50);
+        add(btSairDoJogo);
+        btSairDoJogo.setBounds(720, 630, 260, 50);
         add(JLImagemNome);
         JLImagemNome.setBounds(510, 160, 100, 30);
         add(JLImagemGif);
-        JLImagemGif.setBounds(130, 610, 50, 80);
+        JLImagemGif.setBounds(390, 410, 50, 80);
         add(JLImagemCampeao);
         JLImagemCampeao.setBounds(370, 160, 180, 170);
 
@@ -130,13 +148,42 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
         JLBackground.setBounds(0, 0, 1376, 720);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        mEventosDialogo.cliqueBotao2();
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void btSairDoJogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairDoJogoMouseClicked
+        btSairDoJogo.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NOVAMENTE_ESCURO.obterCaminho())));
+        new Thread(new Runnable() {
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(MidiaBotoes.TEMPO_CRIAR_SOM_BOTAO.obterValor());
+                    mEventosDialogo.cliqueBotao2();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PainelFimDeJogo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }).start();
+    }//GEN-LAST:event_btSairDoJogoMouseClicked
+
+    private void btJogarNovamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJogarNovamenteActionPerformed
+        btJogarNovamente.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NOVAMENTE_ESCURO.obterCaminho())));
         mEventosDialogo.cliqueBotao1();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btJogarNovamenteActionPerformed
+
+    private void btJogarNovamenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btJogarNovamenteMouseEntered
+        btJogarNovamente.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NOVAMENTE_CLARO.obterCaminho())));
+    }//GEN-LAST:event_btJogarNovamenteMouseEntered
+
+    private void btJogarNovamenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btJogarNovamenteMouseExited
+        btJogarNovamente.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_JOGAR_NOVAMENTE_NORMAL.obterCaminho())));
+    }//GEN-LAST:event_btJogarNovamenteMouseExited
+
+    private void btSairDoJogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairDoJogoMouseEntered
+        btSairDoJogo.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_SAIR_JOGO_CLARO.obterCaminho())));
+    }//GEN-LAST:event_btSairDoJogoMouseEntered
+
+    private void btSairDoJogoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairDoJogoMouseExited
+        btSairDoJogo.setIcon(new ImageIcon(getClass().getResource(MidiaBotoes.IMAGEM_SAIR_JOGO_NORMAL.obterCaminho())));
+    }//GEN-LAST:event_btSairDoJogoMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -145,7 +192,7 @@ public class PainelFimDeJogo extends javax.swing.JPanel {
     private javax.swing.JLabel JLImagemGif;
     private javax.swing.JLabel JLImagemNome;
     private javax.swing.JLabel JLMensagem;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btJogarNovamente;
+    private javax.swing.JButton btSairDoJogo;
     // End of variables declaration//GEN-END:variables
 }

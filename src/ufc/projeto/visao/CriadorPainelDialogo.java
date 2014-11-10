@@ -10,7 +10,7 @@ public class CriadorPainelDialogo implements FabricaPainelDialogo{
         if(tipoInformacao == Dialogos.DIALOGO_VENDA_LOGRADOURO.obterValor())
             return new PainelVendaLogradouro(logradouro);
         if(tipoInformacao == Dialogos.DIALOGO_MOSTRAR_INFORMACAO.obterValor())
-            return new PainelMostraLogradouro(logradouro);
+            return new PainelMostrarLogradouro(logradouro);
         if(tipoInformacao == Dialogos.DIALOGO_COBRAR_TAXA.obterValor())
             return new PainelCobrarLogradouro(logradouro);
         return null;

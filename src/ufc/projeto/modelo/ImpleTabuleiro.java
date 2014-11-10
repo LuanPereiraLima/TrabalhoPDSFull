@@ -18,7 +18,7 @@ public class ImpleTabuleiro implements Tabuleiro{
     private int valorDados;
     
     public ImpleTabuleiro() {
-        listaLogradouros = new DiretorLogradouro().getLogradouros();
+        listaLogradouros = new DiretorLogradouro().obterLogradouros();
     }
     
     @Override

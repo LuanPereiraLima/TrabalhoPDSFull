@@ -6,7 +6,6 @@
 package ufc.projeto.visao;
 
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.visao.PainelLogradouro;
 
 /**
  *

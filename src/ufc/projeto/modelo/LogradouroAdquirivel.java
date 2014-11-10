@@ -35,7 +35,7 @@ public abstract class LogradouroAdquirivel extends Logradouro{
     @Override
     public void adquirirPropriedade(Jogador jogador) throws JogadorSemSaldoException, PropriedadeJaAdquiridaException{
         if(!ePropriedadeAdquirida()){
-            if(jogador.obterSaldo() >= this.preco){
+            if(jogador.obterSaldo() > this.preco){
         	jogador.debitarSaldo(this.preco);
         	jogador.adicionarLogradouro(this);
         	setarProprietario(jogador);

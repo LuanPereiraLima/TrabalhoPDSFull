@@ -26,7 +26,7 @@ public class Imovel extends LogradouroAdquirivel{
        
     	if(ePropriedadeAdquirida()){
             if(!jogador.equals(obterProprietario())){
-            	if(jogador.obterSaldo() >= obterTaxa()){
+            	if(jogador.obterSaldo() > obterTaxa()){
             		jogador.debitarSaldo(obterTaxa());
                 	obterProprietario().creditarSaldo(obterTaxa());
             	}else{
