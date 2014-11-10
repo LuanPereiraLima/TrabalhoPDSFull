@@ -35,14 +35,14 @@ public enum Midia {
     IMAGEM_GANDALF_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifDireita.gif"),
     IMAGEM_GANDALF_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/GandalfMGifCostas.gif"),
     
-    IMAGEM_LEGOLAS_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/LegolasMGifFrente.gif"),
+    IMAGEM_LEGOLAS_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/LegolasPGifFrente.png"),
     
     IMAGEM_LEGOLAS_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifFrente.gif"),
     IMAGEM_LEGOLAS_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifEsquerda.gif"), 
     IMAGEM_LEGOLAS_GIF_DIREITA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifDireita.gif"),
     IMAGEM_LEGOLAS_GIF_COSTAS_MOVIMENTACAO("/ufc/projeto/imagens/personagens/LegolasMGifCostas.gif"),
     
-    IMAGEM_ARWEN_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/ArwenMGifFrente.gif"),
+    IMAGEM_ARWEN_GIF_FRENTE_PARADO("/ufc/projeto/imagens/personagens/ArwenPGifFrente.png"),
     
     IMAGEM_ARWEN_GIF_FRENTE_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifFrente.gif"),
     IMAGEM_ARWEN_GIF_ESQUERDA_MOVIMENTACAO("/ufc/projeto/imagens/personagens/ArwenMGifEsquerda.gif"), 

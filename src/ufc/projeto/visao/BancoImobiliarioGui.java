@@ -33,13 +33,10 @@ import ufc.projeto.modelo.excecoes.LogradouroSemPrecoException;
 import ufc.projeto.modelo.excecoes.PosicaoIvalidaParaLogradouroException;
 import ufc.projeto.modelo.excecoes.PropriedadeJaAdquiridaException;
 import ufc.projeto.visao.controladores.midia.ControladorDeAudio;
-import ufc.projeto.visao.dialogos.DialogoLogradouro;
-import ufc.projeto.visao.dialogos.criacao.CriadorDialogo;
 import ufc.projeto.visao.enumeracoes.Jogadores;
 import ufc.projeto.visao.enumeracoes.Midia;
 import ufc.projeto.visao.enumeracoes.MovimentacaoPersonagemGui;
 import ufc.projeto.modelo.Perfil;
-import ufc.projeto.visao.dialogos.DialogoMostrarLogradouro;
 
 
 /**
@@ -440,12 +437,12 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
         jCDado2Jogador2.setBounds(1310, 30, 40, 20);
 
         jCDado2Jogador1.setBackground(new java.awt.Color(102, 102, 102));
-        jCDado2Jogador1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
+        jCDado2Jogador1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         getContentPane().add(jCDado2Jogador1);
         jCDado2Jogador1.setBounds(170, 30, 40, 20);
 
         jCDado1Jogador1.setBackground(new java.awt.Color(102, 102, 102));
-        jCDado1Jogador1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
+        jCDado1Jogador1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         jCDado1Jogador1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCDado1Jogador1ActionPerformed(evt);
@@ -509,11 +506,11 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
     private void preenchendoPerfil(List<Perfil> perfil){
         Perfil per = perfil.get(Jogadores.JOGADOR_1.obterValor());
             jLPersonagem1.setIcon(new ImageIcon(per.obterUrlImagem()));
-            jLPersonagemJogador1.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
+            jLPersonagemJogador1.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             jLNomeDoJagador1.setIcon(new ImageIcon(per.obterUrlNome()));
         per = perfil.get(Jogadores.JOGADOR_2.obterValor());
             jLPersonagem2.setIcon(new ImageIcon(per.obterUrlImagem()));
-            jLPersonagemJogador2.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_FRODO_GIF_FRENTE_PARADO.obterValor())));
+            jLPersonagemJogador2.setIcon(new ImageIcon(per.obterUtlGif().get(Midia.IMAGEM_GIF_FRENTE_PARADO_VALOR.obterValor())));
             jLNomeDoJagador2.setIcon(new ImageIcon(per.obterUrlNome()));
     }
     
@@ -849,7 +846,7 @@ public class BancoImobiliarioGui extends javax.swing.JFrame implements AcoesDoJo
 
     @Override
     public void jogoTerminado(Jogador vencedor) {
-    
+        
     }
 
     @Override

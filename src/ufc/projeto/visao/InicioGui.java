@@ -167,7 +167,7 @@ public class InicioGui extends javax.swing.JFrame {
                try {
                     sleep(500);
                     setVisible(false);
-                    new SelecionaJogadoresGui(tela).setVisible(true);
+                    new SelecionaJogadoresGui().setVisible(true);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(InicioGui.class.getName()).log(Level.SEVERE, null, ex);
                 }

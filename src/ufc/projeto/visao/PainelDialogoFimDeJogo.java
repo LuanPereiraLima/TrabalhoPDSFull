@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

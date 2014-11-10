@@ -1,4 +1,4 @@
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao;
 
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;

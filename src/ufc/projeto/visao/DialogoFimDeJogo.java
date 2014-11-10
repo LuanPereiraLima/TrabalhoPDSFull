@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao;
 
 import java.awt.Frame;
 import java.awt.Point;
@@ -36,7 +36,7 @@ public class DialogoFimDeJogo extends JDialog implements EventosDialogo{
     @Override
     public void cliqueBotao1() {
         this.dispose();
-        //
+        new SelecionaJogadoresGui().setVisible(true);
     }
 
     @Override

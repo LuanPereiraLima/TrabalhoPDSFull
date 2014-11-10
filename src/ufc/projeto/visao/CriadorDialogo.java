@@ -1,12 +1,12 @@
-package ufc.projeto.visao.dialogos.criacao;
+package ufc.projeto.visao;
 
 import javax.swing.JFrame;
 import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.visao.dialogos.DialogoCobrarLogradouro;
-import ufc.projeto.visao.dialogos.DialogoLogradouro;
-import ufc.projeto.visao.dialogos.DialogoMostrarLogradouro;
-import ufc.projeto.visao.dialogos.DialogoVendaLogradouro;
+import ufc.projeto.visao.DialogoCobrarLogradouro;
+import ufc.projeto.visao.DialogoLogradouro;
+import ufc.projeto.visao.DialogoMostrarLogradouro;
+import ufc.projeto.visao.DialogoVendaLogradouro;
 
 public class CriadorDialogo implements FabricaDialogo{
     

@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ufc.projeto.visao.dialogos.criacao;
+package ufc.projeto.visao;
 
-import javax.swing.JFrame;
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.visao.dialogos.DialogoLogradouro;
+import ufc.projeto.visao.PainelLogradouro;
 
 /**
  *
  * @author Loopback
  */
-public interface FabricaDialogo{
-    public DialogoLogradouro obterDialogo(JFrame telaPorTras,int tipoInformacao, Logradouro logradouro);
+public interface FabricaPainelDialogo {
+    public PainelLogradouro obterDialogo(int tipoInformacao, Logradouro logradouro);
 }

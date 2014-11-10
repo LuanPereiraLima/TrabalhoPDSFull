@@ -1,4 +1,4 @@
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao;
 import javax.swing.JPanel;
 import ufc.projeto.modelo.Logradouro;
 

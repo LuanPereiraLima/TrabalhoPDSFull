@@ -1,9 +1,8 @@
-package ufc.projeto.visao.dialogos;
+package ufc.projeto.visao;
 
 import javax.swing.JFrame;
 import ufc.projeto.visao.enumeracoes.Dialogos;
 import ufc.projeto.modelo.Logradouro;
-import ufc.projeto.visao.dialogos.criacao.CriadorPainelDialogo;
 
 public class DialogoVendaLogradouro extends DialogoLogradouro{
 

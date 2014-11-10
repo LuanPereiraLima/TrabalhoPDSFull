@@ -14,7 +14,7 @@ import java.util.List;
  * @author S2
  */
 public class ImpleTabuleiro implements Tabuleiro{
-    private List<Logradouro> listaLogradouros;
+    private final List<Logradouro> listaLogradouros;
     private int valorDados;
     
     public ImpleTabuleiro() {
