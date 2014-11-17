@@ -6,6 +6,7 @@
 
 package ufc.projeto.visao;
 
+import java.awt.GraphicsEnvironment;
 import static java.lang.Thread.sleep;
 import ufc.projeto.visao.controlador.midia.ControladorDeAudio;
 import java.util.logging.Level;
@@ -29,6 +30,8 @@ public class InicioGui extends javax.swing.JFrame {
     public InicioGui() {
         initComponents();
         setLocationRelativeTo(null);
+          //funcao responsavel por redimensionar a tela de acordo com a resoloucao.
+        GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode() ;
         
         controladorDeAudio = new ControladorDeAudio(MidiaSomFundo.SOM_FUNDO_PRIMEIRA_TELA.obterCaminho());
         
@@ -43,6 +46,7 @@ public class InicioGui extends javax.swing.JFrame {
         btJogar = new javax.swing.JButton();
         jBBotaoCreditos = new javax.swing.JButton();
         jLCaixaMadeira = new javax.swing.JLabel();
+        btAjuda = new javax.swing.JButton();
         backGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,6 +119,15 @@ public class InicioGui extends javax.swing.JFrame {
         jLCaixaMadeira.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLCaixaMadeira);
         jLCaixaMadeira.setBounds(920, 240, 300, 320);
+
+        btAjuda.setText("?");
+        btAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAjudaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btAjuda);
+        btAjuda.setBounds(1330, 10, 40, 20);
 
         backGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ufc/projeto/imagens/background/backgroundInicio.jpg"))); // NOI18N
         backGround.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -240,6 +253,11 @@ public class InicioGui extends javax.swing.JFrame {
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btSairMouseClicked
+
+    private void btAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAjudaActionPerformed
+        dispose();
+        new AjudaGui().setVisible(true);
+    }//GEN-LAST:event_btAjudaActionPerformed
     
     /**
      * @param args the command line arguments
@@ -282,6 +300,7 @@ public class InicioGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backGround;
+    private javax.swing.JButton btAjuda;
     private javax.swing.JButton btJogar;
     private javax.swing.JButton btSair;
     private javax.swing.JButton jBBotaoCreditos;
